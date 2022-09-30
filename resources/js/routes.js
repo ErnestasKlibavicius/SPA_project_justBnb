@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';  
-import HelloWorld from './components/HelloWorld.vue';
+import Bookables from './bookables/Bookables.vue';
 
 const About = {template: '<div> about page </div>'}
 
 const routes =  [
     { 
         path: '/',
-        name: 'tava',
-        component: HelloWorld,
+        name: 'home',
+        component: Bookables,
        
     }, 
     {

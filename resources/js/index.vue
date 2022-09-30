@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav class="navbar bg-white border-bottom navbar-light">
-            <router-link class="navbar-brand mr-auto" :to="{ name: 'tava' }">JustBnb</router-link>
+            <router-link class="navbar-brand mr-auto" :to="{ name: 'home' }">JustBnb</router-link>
             <router-link class="btn nav-button" :to="{ name: 'apie' }">about</router-link>
         </nav>
 
