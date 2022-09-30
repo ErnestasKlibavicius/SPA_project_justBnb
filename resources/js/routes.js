@@ -1,19 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router';  
 import Bookables from './bookables/Bookables.vue';
-
-const About = {template: '<div> about page </div>'}
+import Bookable from './bookable/Bookable.vue';
 
 const routes =  [
     { 
         path: '/',
         name: 'home',
         component: Bookables,
-       
-    }, 
-    {
-        path: '/about',
-        name: 'apie',
-        component: About
+    },
+    { 
+        path: '/bookable/:id',
+        name: 'bookable',
+        component: Bookable,
     }
 ];
 
