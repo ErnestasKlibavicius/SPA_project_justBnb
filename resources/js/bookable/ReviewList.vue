@@ -15,7 +15,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        {{ review.created_at }}
+                        {{ $filters.fromNow(review.created_at) }}
                     </div>
                 </div>
                 <div class="row pt-4 pb-4">
@@ -30,15 +30,15 @@
     </div>
 </template>
 
-<script>
+<script> 
 export default {
     props: {
-        bookableId: String
+        bookableId: String,
     },
     data() {
         return {
             loading: false,
-            reviews: null
+            reviews: null,
         }
     },
 
@@ -47,7 +47,6 @@ export default {
         axios.get(`/api/bookables/${this.bookableId}/reviews`)
             .then(response => this.reviews = response.data.data)
             .then(() => this.loading = false);
-    },
-
+    }
 }
 </script>
