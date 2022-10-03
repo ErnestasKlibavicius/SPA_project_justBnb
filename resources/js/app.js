@@ -1,8 +1,16 @@
 import './bootstrap';
+import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+import '@fortawesome/fontawesome-free/scss/brands.scss';
+import '@fortawesome/fontawesome-free/scss/regular.scss';
+import '@fortawesome/fontawesome-free/scss/solid.scss';
+import '@fortawesome/fontawesome-free/scss/v4-shims.scss';
+
+
 import { createApp } from 'vue/dist/vue.esm-bundler.js';
 
 import router from './routes';
 import Index from './index.vue';
+import StarRating from './shared/components/StarRating.vue';
 
 import moment from "moment";
 
@@ -17,6 +25,8 @@ app.config.globalProperties.$filters = {
         return moment(value).fromNow();
     }
 }
+
+app.component("star-rating", StarRating);
 
 app.use(router)
 app.mount('#app')
