@@ -51,8 +51,10 @@
 
 <script>
 import { is404, is422 } from "./../shared/utils/response";
+import ValidationErrors from "./../shared/mixins/ValidationErrors";
 
 export default {
+    mixins: [ValidationErrors],
     data() {
         return {
             review: {
@@ -64,34 +66,50 @@ export default {
             loading: false,
             booking: null,
             error: false,
-            errors: null,
             sending: false
         }
     },
-    created() {
+    async created() {
         this.review.id = this.$route.params.id;
         this.loading = true;
-        axios
-            .get(`/api/reviews/${this.review.id}`)
-            .then(response => {
-                this.existingReview = response.data.data;
-            })
-            .catch(err => {
-                if (is404(err)) {
-                    // Fetch a booking by a review key
-                    return axios.get(`/api/booking-by-review/${this.review.id}`).then(response => {
-                        this.booking = response.data.data;
-                    }).catch((err) => {
-                        // is404(err) ? {} : (this.error = true);
-                        this.error = !is404(err);
-                    });
+
+        try {
+            this.existingReview = (await axios.get(`/api/reviews/${this.review.id}`)).data.data;
+        } catch (err) {
+            if (is404(err)) {
+                try {
+                    this.booking = (await axios.get(`/api/booking-by-review/${this.review.id}`)).data.data;
+                } catch (err) {
+                    this.error = !is404(err);
                 }
 
+            } else {
                 this.error = true;
-            })
-            .then(() => {
-                this.loading = false;
-            });
+            }
+        }
+        this.loading = false;
+        
+        // axios
+        //     .get(`/api/reviews/${this.review.id}`)
+        //     .then(response => {
+        //         this.existingReview = response.data.data;
+        //     })
+        //     .catch(err => {
+        //         if (is404(err)) {
+        //             // Fetch a booking by a review key
+        //             return axios.get(`/api/booking-by-review/${this.review.id}`).then(response => {
+        //                 this.booking = response.data.data;
+        //             }).catch((err) => {
+        //                 // is404(err) ? {} : (this.error = true);
+        //                 this.error = !is404(err);
+        //             });
+        //         }
+
+        //         this.error = true;
+        //     })
+        //     .then(() => {
+        //         this.loading = false;
+        //     });
     },
 
     computed: {
@@ -130,9 +148,6 @@ export default {
                     this.error = true;
                 })
                 .then(() => this.sending = false);
-        },
-        errorFor(field) {
-            return null !== this.errors && this.errors[field] ? this.errors[field] : null;
         }
     },
 }
