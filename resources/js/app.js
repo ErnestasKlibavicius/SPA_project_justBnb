@@ -11,6 +11,8 @@ import { createApp } from 'vue/dist/vue.esm-bundler.js';
 import router from './routes';
 import Index from './index.vue';
 import StarRating from './shared/components/StarRating.vue';
+import FatalError from './shared/components/FatalError.vue';
+import ValidationErrors from './shared/components/ValidationErrors.vue';
 
 import moment from "moment";
 
@@ -27,6 +29,8 @@ app.config.globalProperties.$filters = {
 }
 
 app.component("star-rating", StarRating);
+app.component("fatal-error", FatalError);
+app.component("v-errors", ValidationErrors);
 
 app.use(router)
 app.mount('#app')
