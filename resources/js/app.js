@@ -12,6 +12,7 @@ import router from './routes';
 import Index from './index.vue';
 import StarRating from './shared/components/StarRating.vue';
 import FatalError from './shared/components/FatalError.vue';
+import Success from './shared/components/Success.vue';
 import ValidationErrors from './shared/components/ValidationErrors.vue';
 
 import moment from "moment";
@@ -30,6 +31,7 @@ app.config.globalProperties.$filters = {
 
 app.component("star-rating", StarRating);
 app.component("fatal-error", FatalError);
+app.component("success", Success);
 app.component("v-errors", ValidationErrors);
 
 app.use(router)
