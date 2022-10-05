@@ -2,6 +2,11 @@
     <div>
         <nav class="navbar bg-white border-bottom navbar-light">
             <router-link class="navbar-brand mr-auto" :to="{ name: 'home' }">JustBnb</router-link>
+
+            <router-link class="btn nav-button" :to="{ name: 'home' }">
+                Basket
+                <span v-if="itemsInBasket" class="badge badge-secondary"> {{ itemsInBasket }}</span>
+            </router-link>
         </nav>
 
         <div class="container mt-4 mb-4 pr-4 pl-4">
@@ -13,8 +18,14 @@
 
 
 <script>
-export default {
+import { mapState, mapGetters} from "vuex";
 
+export default {
+    computed: {
+        ...mapGetters({
+            itemsInBasket: 'itemsInBasket'
+        })
+    }
 }
 </script>
 
