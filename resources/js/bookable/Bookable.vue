@@ -16,7 +16,18 @@
         <review-list :bookable-id="this.$route.params.id"></review-list>
     </div>
     <div class="col-md-4 pb-4">
-        <availability :bookable-id="this.$route.params.id"></availability>    
+        <availability :bookable-id="this.$route.params.id" @availability="checkPrice($event)" class="mb-4"></availability>    
+
+        <Transition>
+            <price-breakdown :price="price" v-if="price" class="mb-4"></price-breakdown>
+        </Transition>
+
+        <Transition>
+            <button class="btn btn-outline-secondary btn-block" v-if="price">Book now</button>
+        </Transition>
+
+  
+       
     </div>
   </div>
 </template>
@@ -24,17 +35,21 @@
 <script>
 import Availability from "./Availability.vue";
 import ReviewList from "./ReviewList.vue";
+import PriceBreakdown from "./PriceBreakdown.vue";
+import { mapState } from "vuex";
 
 export default {
     components: {
         Availability,
-        ReviewList
+        ReviewList,
+        PriceBreakdown
     },
     // in here we define data that needs to be reactive
     data() {
         return {
             bookable: null,
             loading: false,
+            price: null
         };
     },
 
@@ -46,6 +61,23 @@ export default {
                 this.bookable = response.data.data;
                 this.loading = false;
             });
-    }
+    }, 
+    computed: mapState({
+        lastSearch: "lastSearch"
+    }),
+    methods: {
+        async checkPrice(hasAvailability) {
+            if(!hasAvailability) {
+                this.price = null;
+                return;
+            }
+
+            try {
+                this.price = (await axios.get(`/api/bookables/${this.bookable.id}/price?from=${this.lastSearch.from}&to=${this.lastSearch.to}`)).data.data;
+            } catch (err) {
+                this.price = null; 
+            }
+        }
+    },
 }
 </script>
