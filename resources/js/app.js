@@ -27,7 +27,10 @@ const store = new createStore(storeDefinition);
 const app = createApp({
     components: {
         "index": Index
-    }
+    },
+    beforeCreate() {
+        this.$store.dispatch('loadStoredState');
+    },
 })
 
 app.use(store);
