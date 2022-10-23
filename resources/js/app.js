@@ -32,7 +32,6 @@ const app = createApp({
         this.$store.dispatch('loadStoredState');
     },
 })
-
 app.use(store);
 
 app.config.globalProperties.$filters = {
