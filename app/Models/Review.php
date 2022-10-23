@@ -7,15 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
+    use HasFactory;
 
     protected $fillable = [
         'id',
         'content',
         'rating'
     ];
-
-
-    use HasFactory;
 
     public function bookable()
     {

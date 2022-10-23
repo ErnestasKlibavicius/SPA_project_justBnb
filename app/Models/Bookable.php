@@ -9,6 +9,12 @@ class Bookable extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'price',
+    ];
+
     public function bookings()
     {
         return $this->hasMany(Booking::class);
@@ -17,6 +23,11 @@ class Bookable extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     public function availableFor($from, $to): bool
