@@ -31,7 +31,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
 });
 
-Route::group(['middleware' => ['auth:api']], function () {
+// Route::group(['middleware' => ['auth:api']], function () {
 
     Route::apiResource('bookables', BookableController::class);
     Route::get('bookables/{bookable}/availability', BookableAvailabilityController::class)->name('bookables.availability.show');
@@ -50,4 +50,4 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::apiResource('comments', CommentController::class)->except(['store']);
     Route::post('/comments/{post_id}/user/{user_id}', [CommentController::class, 'store'])->name('comments.store');
     
-});
+// });
