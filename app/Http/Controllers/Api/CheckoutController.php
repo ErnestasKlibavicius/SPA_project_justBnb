@@ -20,9 +20,6 @@ class CheckoutController extends Controller
     {
         $data = $request->validate([
             'bookings' => 'required|array|min:1',
-            // 'bookings.*' => ['required', function($attribute, $value, $fail){
-
-            // }],
             'bookings.*.bookable_id' => 'required|exists:bookables,id',
             'bookings.*.from' => 'required|date|after_or_equal:today',
             'bookings.*.to' => 'required|date|after_or_equal:bookings.*.from',

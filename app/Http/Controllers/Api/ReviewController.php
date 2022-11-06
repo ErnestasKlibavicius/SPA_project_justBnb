@@ -10,6 +10,11 @@ use App\Models\Booking;
 
 class ReviewController extends Controller
 {
+    public function index() 
+    {
+        return Review::all();
+    }
+
     public function show($id)
     {
         return new ReviewResource(Review::findOrFail($id));
@@ -39,5 +44,32 @@ class ReviewController extends Controller
         $review->save();
 
         return new ReviewResource($review);
+    }
+
+    public function update($id, Request $request) 
+    {
+        $review = Review::findOrFail($id);
+        
+        $data = $request->validate([
+            'content' => 'sometimes',
+            'rating' => 'sometimes'
+        ]);
+
+        $review->update([
+            'content' => array_key_exists('content', $data) ? $data['content'] : "",
+            'rating' => array_key_exists('rating', $data) ? $data['rating'] : 5
+        ]);
+
+        // return new ReviewResource($review);
+        return $review;
+    } 
+
+    public function destroy($id)
+    {
+        $review = Review::findOrFail($id);
+
+        $review->delete();
+
+        return $review;
     }
 }

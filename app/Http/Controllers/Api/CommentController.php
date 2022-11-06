@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\User;
+use App\Models\Comment;
 use App\Models\Bookable;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\BookableIndexResource;
-use App\Http\Resources\BookableShowResource;
 
-class BookableController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,7 @@ class BookableController extends Controller
      */
     public function index()
     {
-        return BookableIndexResource::collection(
-            Bookable::all()
-        );
+        return Comment::all();
     }
 
     /**
@@ -29,7 +27,7 @@ class BookableController extends Controller
      */
     public function create()
     {
-
+        
     }
 
     /**
@@ -38,21 +36,22 @@ class BookableController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($post_id, $user_id, Request $request)
     {
+        $bookable = Bookable::findOrFail($post_id);
+        $user = User::findOrFail($user_id);
+
         $data = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'price' => 'required'
+            'content' => 'required|min:3',
         ]);
 
-        $bookable = Bookable::create([
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'price' =>  $data['price']
+        $comment = Comment::create([
+            'content' => $data['content'],
+            'user_id' => $user->id,
+            'bookable_id' => $bookable->id,
         ]);
 
-        return $bookable;
+        return $comment;
     }
 
     /**
@@ -63,7 +62,7 @@ class BookableController extends Controller
      */
     public function show($id)
     {
-        return new BookableShowResource(Bookable::findOrFail($id));
+        return Comment::findOrFail($id);
     }
 
     /**
@@ -86,21 +85,17 @@ class BookableController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bookable = Bookable::findOrFail($id);
+        $comment = Comment::findOrFail($id);
         
         $data = $request->validate([
-            'title' => 'sometimes',
-            'description' => 'sometimes',
-            'price' => 'sometimes'
+            'content' => 'sometimes'
         ]);
 
-        $bookable->update([
-            'title' => array_key_exists('title', $data) ? $data['title'] : "",
-            'description' => array_key_exists('description', $data) ? $data['description'] : "",
-            'price' => array_key_exists('price', $data) ? $data['price'] : 0,
+        $comment->update([
+            'content' => array_key_exists('content', $data) ? $data['content'] : $comment->content,
         ]);
 
-        return $bookable;
+        return $comment;
     }
 
     /**
@@ -111,10 +106,10 @@ class BookableController extends Controller
      */
     public function destroy($id)
     {
-        $bookable = Bookable::findOrFail($id);
+        $comment = Comment::findOrFail($id);
 
-        $bookable->delete();
+        $comment->delete();
 
-        return $bookable;
+        return $comment;
     }
 }

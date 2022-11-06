@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Bookable;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\BookableIndexResource;
-use App\Http\Resources\BookableShowResource;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class BookableController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,7 @@ class BookableController extends Controller
      */
     public function index()
     {
-        return BookableIndexResource::collection(
-            Bookable::all()
-        );
+        return User::all();
     }
 
     /**
@@ -29,7 +26,7 @@ class BookableController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -41,18 +38,18 @@ class BookableController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'price' => 'required'
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'password' => 'required|min:8'
         ]);
 
-        $bookable = Bookable::create([
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'price' =>  $data['price']
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
         ]);
 
-        return $bookable;
+        return $user;
     }
 
     /**
@@ -63,7 +60,7 @@ class BookableController extends Controller
      */
     public function show($id)
     {
-        return new BookableShowResource(Bookable::findOrFail($id));
+        return User::findOrFail($id);
     }
 
     /**
@@ -86,21 +83,21 @@ class BookableController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bookable = Bookable::findOrFail($id);
+        $user = User::findOrFail($id);
         
         $data = $request->validate([
-            'title' => 'sometimes',
-            'description' => 'sometimes',
-            'price' => 'sometimes'
+            'name' => 'sometimes',
+            'email' => 'sometimes',
+            'password' => 'sometimes|min:8'
         ]);
 
-        $bookable->update([
-            'title' => array_key_exists('title', $data) ? $data['title'] : "",
-            'description' => array_key_exists('description', $data) ? $data['description'] : "",
-            'price' => array_key_exists('price', $data) ? $data['price'] : 0,
+        $user->update([
+            'name' => array_key_exists('name', $data) ? $data['name'] : $user->name,
+            'email' => array_key_exists('email', $data) ? $data['email'] : $user->email,
+            'password' => array_key_exists('password', $data) ? Hash::make($data['password']) : $user->password,
         ]);
 
-        return $bookable;
+        return $user;
     }
 
     /**
@@ -111,10 +108,10 @@ class BookableController extends Controller
      */
     public function destroy($id)
     {
-        $bookable = Bookable::findOrFail($id);
+        $user = User::findOrFail($id);
 
-        $bookable->delete();
+        $user->delete();
 
-        return $bookable;
+        return $user;
     }
 }

@@ -10,7 +10,6 @@ use Illuminate\Support\Arr;
  */
 class BookableFactory extends Factory
 {
-
      protected $suffix = [
         'Villa',
         'House',
