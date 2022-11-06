@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth.role:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -86,7 +90,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        
+
         $data = $request->validate([
             'name' => 'sometimes',
             'email' => 'sometimes',
