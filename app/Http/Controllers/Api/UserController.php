@@ -49,6 +49,8 @@ class UserController extends Controller
             'password' => $data['password'],
         ]);
 
+        $user->assignRole('user');
+
         return $user;
     }
 
