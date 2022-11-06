@@ -31,11 +31,14 @@ class RoleAuthorization
         } catch (JWTException $e) {        //Thrown if token was not found in the request.
             return $this->unauthorized('Please, attach a Bearer Token to your request');
         }
+        
+        // roles on JWT
+        // dd( auth()->payload()['roles']);
 
         //If user was authenticated successfully and user is in one of the acceptable roles, send to next request.
-        $userRoles = $user->getRoleNames()->toArray();
+        $userRoles = auth()->payload()['roles'];
         if(!empty($userRoles) && count($userRoles) > 0) {
-            foreach ($userRoles as $role) {
+            foreach (auth()->payload()['roles'] as $role) {
                 if ($user && in_array($role, $roles)) {
                     return $next($request);
                 }
