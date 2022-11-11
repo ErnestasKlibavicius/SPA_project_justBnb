@@ -9,6 +9,10 @@ use App\Http\Resources\BookingByReviewShowResource;
 
 class BookingByReviewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['index', 'show']]);
+    }
     /**
      * Handle the incoming request.
      *

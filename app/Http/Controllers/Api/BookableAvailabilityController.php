@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class BookableAvailabilityController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['index', 'show']]);
+    }
+    
     /**
      * Handle the incoming request.
      *

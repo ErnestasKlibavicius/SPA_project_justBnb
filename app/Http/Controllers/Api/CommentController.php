@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 
 class CommentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -38,20 +42,28 @@ class CommentController extends Controller
      */
     public function store($post_id, $user_id, Request $request)
     {
-        $bookable = Bookable::findOrFail($post_id);
-        $user = User::findOrFail($user_id);
+        if(auth()->user()->hasRole('admin') || auth()->user()->id == $user_id) {
+            $bookable = Bookable::findOrFail($post_id);
+            $user = User::findOrFail($user_id);
+    
+            $data = $request->validate([
+                'content' => 'required|min:3',
+            ]);
+    
+            $comment = Comment::create([
+                'content' => $data['content'],
+                'user_id' => $user->id,
+                'bookable_id' => $bookable->id,
+            ]);
+    
+            return $comment;
+        }
 
-        $data = $request->validate([
-            'content' => 'required|min:3',
-        ]);
-
-        $comment = Comment::create([
-            'content' => $data['content'],
-            'user_id' => $user->id,
-            'bookable_id' => $bookable->id,
-        ]);
-
-        return $comment;
+        return response()->json([
+            "status" => "403",
+            "message" =>  "Uppss... you cannot be peeking here"
+        ], 403);
+     
     }
 
     /**

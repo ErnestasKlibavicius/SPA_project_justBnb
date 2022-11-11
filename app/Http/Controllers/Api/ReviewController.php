@@ -10,6 +10,12 @@ use App\Models\Booking;
 
 class ReviewController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth.role:user', ['except' => 'index']);
+    }
+
     public function index() 
     {
         return Review::all();

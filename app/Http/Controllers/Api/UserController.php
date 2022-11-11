@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth.role:user');
+        $this->middleware('auth.role:user', ['except' => 'store']);
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +20,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        if(auth()->user()->hasRole('admin')) {
+            return User::all();
+        } 
+
+        return  response()->json([
+            "status" => "403",
+            "message" =>  "Uppss... you cannot be peeking here"
+        ], 403);
     }
 
     /**
@@ -66,7 +73,14 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::findOrFail($id);
+        if(auth()->user()->id == $id || auth()->user()->hasRole('admin')) {
+            return User::findOrFail($id);
+        }
+
+        return  response()->json([
+            "status" => "403",
+            "message" =>  "Uppss... you cannot be peeking here"
+        ], 403);
     }
 
     /**
@@ -91,19 +105,27 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $data = $request->validate([
-            'name' => 'sometimes',
-            'email' => 'sometimes',
-            'password' => 'sometimes|min:8'
-        ]);
+        if(auth()->user()->hasRole('admin') || auth()->user()->id == $id) {
+            $data = $request->validate([
+                'name' => 'sometimes',
+                'email' => 'sometimes',
+                'password' => 'sometimes|min:8'
+            ]);
+    
+            $user->update([
+                'name' => array_key_exists('name', $data) ? $data['name'] : $user->name,
+                'email' => array_key_exists('email', $data) ? $data['email'] : $user->email,
+                'password' => array_key_exists('password', $data) ? Hash::make($data['password']) : $user->password,
+            ]);
+    
+            return $user;
+        }
 
-        $user->update([
-            'name' => array_key_exists('name', $data) ? $data['name'] : $user->name,
-            'email' => array_key_exists('email', $data) ? $data['email'] : $user->email,
-            'password' => array_key_exists('password', $data) ? Hash::make($data['password']) : $user->password,
-        ]);
+        return  response()->json([
+            "status" => "403",
+            "message" =>  "Uppss... you cannot be peeking here"
+        ], 403);
 
-        return $user;
     }
 
     /**
@@ -116,8 +138,15 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $user->delete();
+        if(auth()->user()->hasRole('admin') ) {
+            $user->delete();
+            return $user;
+        }
 
-        return $user;
+        return  response()->json([
+            "status" => "403",
+            "message" =>  "Uppss... you cannot be peeking here"
+        ], 403);
+       
     }
 }
