@@ -37,17 +37,16 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('bookables/{bookable}/availability', BookableAvailabilityController::class)->name('bookables.availability.show');
     Route::get('bookables/{bookable}/reviews', BookableReviewController::class)->name('bookables.reviews.index');
     Route::get('bookables/{bookable}/price', BookablePriceController::class)->name('bookables.price.show');
-    
+
     Route::get('/booking-by-review/{reviewKey}', BookingByReviewController::class)->name('booking.by-review.show');
-    
+
     Route::apiResource('reviews', ReviewController::class);
-    
-    
+
     Route::post('checkout', CheckoutController::class)->name('checkout');
-    
+
     Route::apiResource('users', UserController::class);
-    
+
     Route::apiResource('comments', CommentController::class)->except(['store']);
     Route::post('/comments/{post_id}/user/{user_id}', [CommentController::class, 'store'])->name('comments.store');
-    
+
 // });

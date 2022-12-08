@@ -92,7 +92,7 @@ class BookableController extends Controller
     public function update(Request $request, $id)
     {
         $bookable = Bookable::findOrFail($id);
-        
+
         $data = $request->validate([
             'title' => 'sometimes',
             'description' => 'sometimes',

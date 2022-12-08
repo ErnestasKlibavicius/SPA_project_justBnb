@@ -78,11 +78,34 @@ export default {
         this.loading = true;
 
         try {
-            this.existingReview = (await axios.get(`/api/reviews/${this.review.id}`)).data.data;
+
+            if(localStorage.getItem('userData') !== "null") {
+                let axiosInstance = axios.create({
+                    headers: {
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
+                    }
+                });
+
+                this.existingReview = (await axiosInstance.get(`/api/reviews/${this.review.id}`)).data.data;
+            } else {
+                this.existingReview = (await axios.get(`/api/reviews/${this.review.id}`)).data.data;
+            }
+
         } catch (err) {
             if (is404(err)) {
                 try {
-                    this.booking = (await axios.get(`/api/booking-by-review/${this.review.id}`)).data.data;
+                    if(localStorage.getItem('userData') !== "null") {
+                        let axiosInstance = axios.create({
+                            headers: {
+                                Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
+                            }
+                        });
+
+                        this.booking = (await axiosInstance.get(`/api/booking-by-review/${this.review.id}`)).data.data;
+                    }else {
+                        this.booking = (await axios.get(`/api/booking-by-review/${this.review.id}`)).data.data;
+                    }
+
                 } catch (err) {
                     this.error = !is404(err);
                 }
@@ -116,24 +139,51 @@ export default {
             this.errors = null;
             this.success = false;
 
-            axios
-                .post(`/api/reviews`, this.review)
-                .then(response => {
-                    this.success = response.status === 201;
-                })
-                .catch((err) => {
-                    if (is422(err)) {
-                        const errors = err.response.data.errors;
-
-                        if (errors['content'] && _.size(errors) === 1) {
-                            this.errors = errors;
-                            return;
-                        }
+            if(localStorage.getItem('userData') !== "null") {
+                let axiosInstance = axios.create({
+                    headers: {
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
                     }
+                });
 
-                    this.error = true;
-                })
-                .then(() => this.sending = false);
+                axiosInstance
+                    .post(`/api/reviews`, this.review)
+                    .then(response => {
+                        this.success = response.status === 201;
+                    })
+                    .catch((err) => {
+                        if (is422(err)) {
+                            const errors = err.response.data.errors;
+
+                            if (errors['content'] && _.size(errors) === 1) {
+                                this.errors = errors;
+                                return;
+                            }
+                        }
+
+                        this.error = true;
+                    })
+                    .then(() => this.sending = false);
+            } else {
+                axios
+                    .post(`/api/reviews`, this.review)
+                    .then(response => {
+                        this.success = response.status === 201;
+                    })
+                    .catch((err) => {
+                        if (is422(err)) {
+                            const errors = err.response.data.errors;
+
+                            if (errors['content'] && _.size(errors) === 1) {
+                                this.errors = errors;
+                                return;
+                            }
+                        }
+
+                        this.error = true;
+                    })
+                    .then(() => this.sending = false);
+            }
         }
     },
 }

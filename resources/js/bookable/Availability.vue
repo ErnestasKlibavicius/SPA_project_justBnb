@@ -41,7 +41,7 @@
 export default {
     mixins: [ValidationErrors],
     props: {
-      bookableId: String  
+      bookableId: String
     },
     data() {
         return {
@@ -62,7 +62,18 @@ export default {
             });
 
             try {
-                this.status = (await axios.get(`/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`)).status;
+                if(localStorage.getItem('userData') !== "null") {
+                    let axiosInstance = axios.create({
+                        headers: {
+                            Authorization : `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
+                        }
+                    });
+
+                    this.status = (await axiosInstance.get(`/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`)).status;
+                } else {
+                    this.status = (await axios.get(`/api/bookables/${this.bookableId}/availability?from=${this.from}&to=${this.to}`)).status;
+                }
+
                 this.$emit("availability", this.hasAvailability);
             } catch (err) {
                 if (is422(err)) {

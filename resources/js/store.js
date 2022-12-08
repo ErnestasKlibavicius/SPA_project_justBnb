@@ -6,7 +6,10 @@ export default {
         },
         basket: {
             items: []
-        }
+        },
+
+        userData: null
+
     },
     mutations: {
         setLastSearch(state, payload) {
@@ -21,6 +24,12 @@ export default {
         },
         setBasket(state, payload) {
             state.basket = payload;
+        },
+        storeUserData(state, payload) {
+            state.userData = payload;
+        },
+        removeUserData(state, payload) {
+            state.userData = null;
         }
     },
     actions: {
@@ -38,12 +47,28 @@ export default {
             if(basket) {
                 context.commit('setBasket', JSON.parse(basket));
             }
+
+            const authData = localStorage.getItem('userData');
+            if (authData) {
+                context.commit('storeUserData', JSON.parse(authData));
+            }
         },
         addToBasket({ commit, state}, payload) {
             // context.state, context.commit
             commit('addToBasket', payload);
             localStorage.setItem('basket', JSON.stringify(state.basket));
         },
+
+        storeUserData({ commit, state}, payload) {
+            commit('storeUserData', payload);
+            localStorage.setItem('userData', JSON.stringify(state.userData));
+        },
+
+        removeUserData({ commit, state}, payload) {
+            commit('removeUserData', payload);
+            localStorage.setItem('userData', null);
+        },
+
         removeFromBasket({ commit, state}, payload) {
             commit('removeFromBasket', payload);
             localStorage.setItem('basket', JSON.stringify(state.basket));
@@ -56,6 +81,7 @@ export default {
     },
     getters: {
         itemsInBasket: (state) => state.basket.items.length,
+        userAuthData: (state) => state.userData,
         inBasketAlready(state) {
             return function (id) {
                 return state.basket.items.reduce(

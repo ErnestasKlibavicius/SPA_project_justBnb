@@ -92,7 +92,17 @@ export default {
             }
 
             try {
-                this.price = (await axios.get(`/api/bookables/${this.bookable.id}/price?from=${this.lastSearch.from}&to=${this.lastSearch.to}`)).data.data;
+                if(localStorage.getItem('userData') !== "null") {
+                    let axiosInstance = axios.create({
+                        headers: {
+                            Authorization : `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
+                        }
+                    });
+                    this.price = (await axiosInstance.get(`/api/bookables/${this.bookable.id}/price?from=${this.lastSearch.from}&to=${this.lastSearch.to}`)).data.data;
+                } else {
+                    this.price = (await axios.get(`/api/bookables/${this.bookable.id}/price?from=${this.lastSearch.from}&to=${this.lastSearch.to}`)).data.data;
+                }
+
             } catch (err) {
                 this.price = null;
             }

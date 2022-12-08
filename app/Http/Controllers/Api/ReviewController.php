@@ -16,7 +16,7 @@ class ReviewController extends Controller
         $this->middleware('auth.role:user', ['except' => 'index']);
     }
 
-    public function index() 
+    public function index()
     {
         return Review::all();
     }
@@ -24,7 +24,7 @@ class ReviewController extends Controller
     public function show($id)
     {
         return new ReviewResource(Review::findOrFail($id));
-    } 
+    }
 
     public function store(Request $request)
     {
@@ -52,10 +52,10 @@ class ReviewController extends Controller
         return new ReviewResource($review);
     }
 
-    public function update($id, Request $request) 
+    public function update($id, Request $request)
     {
         $review = Review::findOrFail($id);
-        
+
         $data = $request->validate([
             'content' => 'sometimes',
             'rating' => 'sometimes'
@@ -68,7 +68,7 @@ class ReviewController extends Controller
 
         // return new ReviewResource($review);
         return $review;
-    } 
+    }
 
     public function destroy($id)
     {

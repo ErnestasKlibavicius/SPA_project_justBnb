@@ -30,7 +30,7 @@
     </div>
 </template>
 
-<script> 
+<script>
 export default {
     props: {
         bookableId: String,
@@ -44,9 +44,19 @@ export default {
 
     created() {
         this.loading = true;
-        axios.get(`/api/bookables/${this.bookableId}/reviews`)
-            .then(response => this.reviews = response.data.data)
-            .then(() => this.loading = false);
+
+        if(localStorage.getItem('userData') !== "null") {
+            let axiosInstance = axios.create({
+                headers: {
+                    Authorization : `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
+                }
+            });
+
+            axiosInstance.get(`/api/bookables/${this.bookableId}/reviews`)
+                .then(response => this.reviews = response.data.data)
+                .then(() => this.loading = false);
+        }
+
     }
 }
 </script>
