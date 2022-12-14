@@ -9,6 +9,26 @@
   opacity: 0;
 }
 
+.index-footer {
+    margin-top: auto;
+    a {
+        color: #e3e3e3;
+    }
+}
+
+.navai {
+    @media (max-width: 991px) {
+        display: block;
+    }
+}
+
+
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
 
 
