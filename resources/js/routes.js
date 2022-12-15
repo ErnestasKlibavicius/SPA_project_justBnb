@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Bookables from './bookables/Bookables.vue';
 import Bookable from './bookable/Bookable.vue';
+import BookableEdit from './bookable/BookableEdit.vue';
 import Review from './review/Review.vue';
 import Basket from './basket/Basket.vue';
 import Login from './auths/Login.vue';
@@ -19,6 +20,11 @@ const routes =  [
         path: '/bookable/:id',
         name: 'bookable',
         component: Bookable,
+    },
+    {
+        path: '/bookable/:id/edit',
+        name: 'bookableEdit',
+        component: BookableEdit,
     },
     {
         path: '/review/:id',

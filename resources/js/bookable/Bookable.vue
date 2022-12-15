@@ -26,7 +26,9 @@
         <div class="col-md-4 pb-4">
             <div v-if="is_owner">
                 <div class="btn btn-primary m-2" style="display: block">
-                    edit
+                    <router-link :to="`/bookable/${this.$route.params.id}/edit`">
+                        <h5 style="color: #fff !important;">Edit</h5>
+                    </router-link>
                 </div>
                 <div class="btn btn-danger m-2" style="display: block" @click="deleteBookable">
                     delete

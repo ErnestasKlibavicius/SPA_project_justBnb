@@ -18,7 +18,8 @@ class BookableShowResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'user_id' => $this->user_id
+            'user_id' => $this->user_id,
+            'price' => $this->price
         ];
     }
 }
