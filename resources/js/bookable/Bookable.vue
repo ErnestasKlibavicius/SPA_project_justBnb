@@ -25,10 +25,10 @@
         </div>
         <div class="col-md-4 pb-4">
             <div v-if="is_owner">
-                <div class="btn btn-primary">
+                <div class="btn btn-primary m-2" style="display: block">
                     edit
                 </div>
-                <div class="btn btn-danger" @click="deleteBookable">
+                <div class="btn btn-danger m-2" style="display: block" @click="deleteBookable">
                     delete
                 </div>
             </div>

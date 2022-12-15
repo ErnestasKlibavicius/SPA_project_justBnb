@@ -16,6 +16,11 @@ class Booking extends Model
         'to'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function bookable()
     {
         return $this->belongsTo(Bookable::class);
@@ -48,5 +53,5 @@ class Booking extends Model
         static::creating(function ($booking) {
             $booking->review_key = Str::uuid();
         });
-    } 
+    }
 }

@@ -44,6 +44,14 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+        static::created(function ($model) {
+            $model->assignRole('user');
+        });
+    }
+
     public function Comment()
     {
         return $this->hasMany(Comment::class);
@@ -52,6 +60,11 @@ class User extends Authenticatable implements JWTSubject
     public function Bookable()
     {
         return $this->hasMany(Bookable::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
     }
 
     public function getJWTIdentifier()

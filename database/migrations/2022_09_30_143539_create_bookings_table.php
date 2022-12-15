@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('from');
             $table->date('to');
             $table->unsignedBigInteger('bookable_id')->index();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreign('bookable_id')->references('id')->on('bookables')->cascadeOnDelete();
             $table->timestamps();
         });

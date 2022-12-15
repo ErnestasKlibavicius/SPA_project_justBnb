@@ -22,6 +22,11 @@
                     </div>
 
                     <div v-if="userAuthData">
+
+                        <router-link v-if="showUserBookings" class="btn nav-button navai" :to="{ name: 'bookings' }">
+                            My Bookings
+                        </router-link>
+
                         <span class="btn nav-button navai" @click="Logout">Logout</span>
 
                         <router-link class="btn nav-button navai" :to="{ name: 'basket' }">
@@ -97,6 +102,30 @@
 import {mapState, mapGetters} from "vuex";
 
 export default {
+    data() {
+        return {
+            showLoginRegister: false,
+            showUserBookings: false,
+        }
+    },
+
+    created() {
+
+        if (localStorage.getItem('userData') !== null && localStorage.getItem('userData') !== "null") {
+            let axiosInstance = axios.create({
+                headers: {
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
+                }
+            });
+            axiosInstance
+                .get(`/api/user-bookings/${JSON.parse(localStorage.getItem('userData')).authData.user_id}`)
+                .then(response => {
+                    this.showUserBookings = true;
+                }).catch(error => {
+                console.log(error);
+            })
+        }
+    },
     computed: {
         ...mapGetters({
             itemsInBasket: 'itemsInBasket'
@@ -106,19 +135,13 @@ export default {
         })
     },
 
-    data() {
-        return {
-            showLoginRegister: false,
-        }
-    },
-
     methods: {
         Logout() {
             if (this.userAuthData !== null) {
                 // let userToken = JSON.parse(localStorage.getItem('userData')).authData.token;
                 let axiosInstance = axios.create({
                     headers: {
-                        Authorization : `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
                     }
                 });
 

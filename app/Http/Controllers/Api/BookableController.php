@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Bookable;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BookableIndexResource;
@@ -119,6 +120,9 @@ class BookableController extends Controller
         $bookable = Bookable::findOrFail($id);
         if(auth()->user()->hasRole('admin') || auth()->user()->id == $bookable->user->id) {
             $bookable->delete();
+            if(Review::where('bookable_id', $bookable->id)->count() > 0) {
+                Review::where('bookable_id', $bookable->id)->delete();
+            }
             return $bookable;
         }
 

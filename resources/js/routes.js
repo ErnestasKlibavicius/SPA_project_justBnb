@@ -5,6 +5,8 @@ import Review from './review/Review.vue';
 import Basket from './basket/Basket.vue';
 import Login from './auths/Login.vue';
 import Register from './auths/Register.vue';
+import Bookings from './auths/Bookings.vue';
+
 
 
 const routes =  [
@@ -37,6 +39,11 @@ const routes =  [
         path: '/register',
         component: Register,
         name: "register"
+    },
+    {
+        path: '/bookings',
+        component: Bookings,
+        name: "bookings"
     }
 ];
 

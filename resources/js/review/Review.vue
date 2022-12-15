@@ -76,16 +76,13 @@ export default {
     async created() {
         this.review.id = this.$route.params.id;
         this.loading = true;
-
         try {
-
             if(localStorage.getItem('userData') !== "null") {
                 let axiosInstance = axios.create({
                     headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
                     }
                 });
-
                 this.existingReview = (await axiosInstance.get(`/api/reviews/${this.review.id}`)).data.data;
             } else {
                 this.existingReview = (await axios.get(`/api/reviews/${this.review.id}`)).data.data;
@@ -97,19 +94,18 @@ export default {
                     if(localStorage.getItem('userData') !== "null") {
                         let axiosInstance = axios.create({
                             headers: {
-                                Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
+                                Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
                             }
                         });
 
                         this.booking = (await axiosInstance.get(`/api/booking-by-review/${this.review.id}`)).data.data;
-                    }else {
+                    } else {
                         this.booking = (await axios.get(`/api/booking-by-review/${this.review.id}`)).data.data;
                     }
 
                 } catch (err) {
                     this.error = !is404(err);
                 }
-
             } else {
                 this.error = true;
             }
@@ -142,7 +138,7 @@ export default {
             if(localStorage.getItem('userData') !== "null") {
                 let axiosInstance = axios.create({
                     headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
                     }
                 });
 

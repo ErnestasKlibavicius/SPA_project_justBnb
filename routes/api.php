@@ -40,6 +40,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('bookables/{bookable}/author', \App\Http\Controllers\Api\BookableAuthorController::class)->name('bookables.author');
 
     Route::get('/booking-by-review/{reviewKey}', BookingByReviewController::class)->name('booking.by-review.show');
+    Route::get('/user-bookings/{user_id}', [\App\Http\Controllers\userBookingsController::class, 'index'])->name('user.bookings');
 
     Route::apiResource('reviews', ReviewController::class);
 
