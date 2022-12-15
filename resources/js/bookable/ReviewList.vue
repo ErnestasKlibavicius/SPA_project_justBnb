@@ -7,7 +7,7 @@
             <div class="border-bottom d-none d-md-block" v-for="(review, index) in reviews" :key="'review' + index">
                 <div class="row pt-4">
                     <div class="col-md-6">
-                        Piotr Jura
+                        Ernestas K
                     </div>
                     <div class="col-md-6 d-flex justify-content-end">
                         <star-rating :rating="review.rating" class="fa-lg"></star-rating>
@@ -48,7 +48,7 @@ export default {
         if(localStorage.getItem('userData') !== "null") {
             let axiosInstance = axios.create({
                 headers: {
-                    Authorization : `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
+                    Authorization : `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
                 }
             });
 

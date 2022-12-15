@@ -117,9 +117,15 @@ class BookableController extends Controller
     public function destroy($id)
     {
         $bookable = Bookable::findOrFail($id);
+        if(auth()->user()->hasRole('admin') || auth()->user()->id == $bookable->user->id) {
+            $bookable->delete();
+            return $bookable;
+        }
 
-        $bookable->delete();
+        return response()->json([
+            "status" => "403",
+            "message" =>  "Uppss... you cannot be peeking here"
+        ], 403);
 
-        return $bookable;
     }
 }

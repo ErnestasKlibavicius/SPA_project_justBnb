@@ -4,6 +4,14 @@
             <div class="card">
                 <div class="card-body">
                     <div v-if="!loading">
+
+                        <span v-if="author && !is_owner">
+                            Booking Author: {{ author }}
+                        </span>
+
+                        <div v-if="is_owner" class="alert alert-success">
+                            This booking belongs to you
+                        </div>
                         <h2>{{ bookable.title }}</h2>
                         <hr>
                         <article>{{ bookable.description }}</article>
@@ -16,6 +24,15 @@
             <review-list :bookable-id="this.$route.params.id"></review-list>
         </div>
         <div class="col-md-4 pb-4">
+            <div v-if="is_owner">
+                <div class="btn btn-primary">
+                    edit
+                </div>
+                <div class="btn btn-danger" @click="deleteBookable">
+                    delete
+                </div>
+            </div>
+
             <availability :bookable-id="this.$route.params.id" @availability="checkPrice($event)" class="mb-4">
             </availability>
 
@@ -25,18 +42,19 @@
 
             <Transition>
                 <button class="btn btn-outline-secondary btn-block" v-if="price" @click="addToBasket"
-                    :disabled="inBasketAlready">Book now</button>
+                        :disabled="inBasketAlready">Book now
+                </button>
             </Transition>
 
 
             <button class="btn btn-outline-secondary btn-block" v-if="inBasketAlready" @click="removeFromBasket">Remove
-                from basket</button>
+                from basket
+            </button>
 
             <div v-if="inBasketAlready" class="mt-4 text-muted warning">
                 Seems like you've added this object to basket already. If you want to change dates, remove from basket
                 first.
             </div>
-
 
 
         </div>
@@ -47,7 +65,7 @@
 import Availability from "./Availability.vue";
 import ReviewList from "./ReviewList.vue";
 import PriceBreakdown from "./PriceBreakdown.vue";
-import { mapState } from "vuex";
+import {mapState} from "vuex";
 
 export default {
     components: {
@@ -60,6 +78,9 @@ export default {
         return {
             bookable: null,
             loading: false,
+            is_owner: false,
+            author: null,
+            bookableUser: null,
             price: null
         };
     },
@@ -70,7 +91,21 @@ export default {
             .get(`/api/bookables/${this.$route.params.id}`)
             .then(response => {
                 this.bookable = response.data.data;
+                if (localStorage.getItem('userData') !== "null") {
+                    this.bookableUser = response.data.data.user_id;
+                    if (this.bookableUser === JSON.parse(localStorage.getItem('userData')).authData.user_id) {
+                        this.is_owner = true;
+                    }
+                }
                 this.loading = false;
+            });
+
+        axios
+            .get(`/api/bookables/${this.$route.params.id}/author`)
+            .then(response => {
+                if (response.data.data.id === this.bookableUser) {
+                    this.author = response.data.data.name;
+                }
             });
     },
     computed: {
@@ -90,12 +125,12 @@ export default {
                 this.price = null;
                 return;
             }
-
             try {
-                if(localStorage.getItem('userData') !== "null") {
+                if (localStorage.getItem('userData') !== "null") {
+
                     let axiosInstance = axios.create({
                         headers: {
-                            Authorization : `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
+                            Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
                         }
                     });
                     this.price = (await axiosInstance.get(`/api/bookables/${this.bookable.id}/price?from=${this.lastSearch.from}&to=${this.lastSearch.to}`)).data.data;
@@ -116,6 +151,24 @@ export default {
         },
         removeFromBasket() {
             this.$store.dispatch('removeFromBasket', this.bookable.id);
+        },
+
+        deleteBookable() {
+            if (confirm('are you sure?')) {
+                let axiosInstance = axios.create({
+                    headers: {
+                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
+                    }
+                });
+
+                axiosInstance.delete(`/api/bookables/${this.bookable.id}`)
+                    .then(response => {
+                        this.$router.push("/");
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            }
         }
     },
 }

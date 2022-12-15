@@ -49,6 +49,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Comment::class);
     }
 
+    public function Bookable()
+    {
+        return $this->hasMany(Bookable::class);
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

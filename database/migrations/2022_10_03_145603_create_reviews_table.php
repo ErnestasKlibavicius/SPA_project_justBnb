@@ -19,10 +19,10 @@ return new class extends Migration
             $table->text('content');
 
             $table->unsignedBigInteger('bookable_id')->index();
-            $table->foreign('bookable_id')->references('id')->on('bookables');
+            $table->foreign('bookable_id')->references('id')->on('bookables')->cascadeOnDelete();
 
             $table->unsignedBigInteger('booking_id')->index()->nullable();
-            $table->foreign('booking_id')->references('id')->on('bookables');  // on bookings ?? 
+            $table->foreign('booking_id')->references('id')->on('bookables')->cascadeOnDelete();  // on bookings ??
 
 
             $table->timestamps();

@@ -118,7 +118,7 @@ export default {
                 // let userToken = JSON.parse(localStorage.getItem('userData')).authData.token;
                 let axiosInstance = axios.create({
                     headers: {
-                        Authorization: `Bearer ${this.userAuthData.authData.token}`
+                        Authorization : `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
                     }
                 });
 
@@ -129,7 +129,7 @@ export default {
                         this.$store.dispatch('removeUserData', {
                             'authData': response.data.authorisation
                         });
-                        this.$router.push("login");
+                        this.$router.push("/login");
                     });
             }
         }

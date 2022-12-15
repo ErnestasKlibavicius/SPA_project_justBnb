@@ -62,6 +62,7 @@ export default {
             email: null,
             sending: false,
             error:  null,
+            userData: null,
         }
     },
 
@@ -70,6 +71,7 @@ export default {
             this.loading = true;
             this.sending = true;
             this.error = null;
+            this.userData = null;
 
             if(this.email === null || this.password === null) {
                 this.error = 'please enter required field values!';
@@ -82,8 +84,12 @@ export default {
                 })
                 .then(response => {
                     console.log("LOGIN: SUCCESS!");
+                    this.userData = {
+                        'user_id': response.data.user.id,
+                        'authParams': response.data.authorisation,
+                    }
                     this.$store.dispatch('storeUserData', {
-                        'authData': response.data.authorisation
+                        'authData': this.userData
                     });
                     this.$router.push("/");
                 })

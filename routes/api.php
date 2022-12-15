@@ -37,6 +37,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('bookables/{bookable}/availability', BookableAvailabilityController::class)->name('bookables.availability.show');
     Route::get('bookables/{bookable}/reviews', BookableReviewController::class)->name('bookables.reviews.index');
     Route::get('bookables/{bookable}/price', BookablePriceController::class)->name('bookables.price.show');
+    Route::get('bookables/{bookable}/author', \App\Http\Controllers\Api\BookableAuthorController::class)->name('bookables.author');
 
     Route::get('/booking-by-review/{reviewKey}', BookingByReviewController::class)->name('booking.by-review.show');
 

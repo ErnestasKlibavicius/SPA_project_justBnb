@@ -65,7 +65,7 @@ export default {
                 if(localStorage.getItem('userData') !== "null") {
                     let axiosInstance = axios.create({
                         headers: {
-                            Authorization : `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.token}`
+                            Authorization : `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
                         }
                     });
 
