@@ -11,9 +11,7 @@
                 class="form-control"
                 name="first_name"
                 v-model="customer.first_name"
-                :class="[{'is-invalid': errorFor('customer.first_name')}]"
               />
-              <v-errors :errors="errorFor('customer.first_name')"></v-errors>
             </div>
             <div class="col-md-6 form-group">
               <label for="last_name">Last name</label>
@@ -22,9 +20,9 @@
                 class="form-control"
                 name="last_name"
                 v-model="customer.last_name"
-                :class="[{'is-invalid': errorFor('customer.last_name')}]"
               />
-              <v-errors :errors="errorFor('customer.last_name')"></v-errors>
+<!--              <v-errors :errors="errorFor('customer.last_name')"></v-errors>-->
+                <!--                :class="[{'is-invalid': errorFor('customer.first_name')}]"-->
             </div>
           </div>
           <div class="row">
@@ -35,9 +33,7 @@
                 class="form-control"
                 name="email"
                 v-model="customer.email"
-                :class="[{'is-invalid': errorFor('customer.email')}]"
               />
-              <v-errors :errors="errorFor('customer.email')"></v-errors>
             </div>
           </div>
           <div class="row">
@@ -48,9 +44,7 @@
                 class="form-control"
                 name="street"
                 v-model="customer.street"
-                :class="[{'is-invalid': errorFor('customer.street')}]"
               />
-              <v-errors :errors="errorFor('customer.street')"></v-errors>
             </div>
             <div class="col-md-6 form-group">
               <label for="city">City</label>
@@ -59,9 +53,7 @@
                 class="form-control"
                 name="city"
                 v-model="customer.city"
-                :class="[{'is-invalid': errorFor('customer.city')}]"
               />
-              <v-errors :errors="errorFor('customer.city')"></v-errors>
             </div>
           </div>
           <div class="row">
@@ -72,9 +64,7 @@
                 class="form-control"
                 name="country"
                 v-model="customer.country"
-                :class="[{'is-invalid': errorFor('customer.country')}]"
               />
-              <v-errors :errors="errorFor('customer.country')"></v-errors>
             </div>
             <div class="col-md-4 form-group">
               <label for="state">State</label>
@@ -83,9 +73,7 @@
                 class="form-control"
                 name="state"
                 v-model="customer.state"
-                :class="[{'is-invalid': errorFor('customer.state')}]"
               />
-              <v-errors :errors="errorFor('customer.state')"></v-errors>
             </div>
             <div class="col-md-2 form-group">
               <label for="zip">Zip</label>
@@ -94,9 +82,7 @@
                 class="form-control"
                 name="zip"
                 v-model="customer.zip"
-                :class="[{'is-invalid': errorFor('customer.zip')}]"
               />
-              <v-errors :errors="errorFor('customer.zip')"></v-errors>
             </div>
           </div>
           <hr />
@@ -159,12 +145,13 @@
 
   <script>
   import { mapGetters, mapState } from "vuex";
-  import validationErrors from "./../shared/mixins/validationErrors";
+  // import validationErrors from "./../shared/mixins/validationErrors";
 
   export default {
-    mixins: [validationErrors],
+    // mixins: [validationErrors],
     data() {
       return {
+        errors: null,
         loading: false,
         bookingAttempted: false,
         customer: {
@@ -206,6 +193,7 @@
           });
           this.$store.dispatch("clearBasket");
         } catch (error) {
+            console.log(error);
           this.errors = error.response && error.response.data.errors;
         }
 
