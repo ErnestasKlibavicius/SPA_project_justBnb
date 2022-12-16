@@ -153,9 +153,7 @@ export default {
                     .post(`/api/logout`)
                     .then(response => {
                         console.log("LOGOUT: SUCCESS!");
-                        this.$store.dispatch('removeUserData', {
-                            'authData': response.data.authorisation
-                        });
+                        this.$store.dispatch('removeUserData');
                         this.$router.push("/login");
                     });
             }
