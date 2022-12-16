@@ -16,9 +16,6 @@
                                     </div>
 
                                     <div v-if="booking.review_key" style="display:block" class="btn btn-secondary m-3">
-                                        <p>
-                                            {{booking.review_key}}
-                                        </p>
                                         <router-link :to="`/review/${booking.review_key}`">
 
                                             <h5 style="color: #fff !important;">Leave a review</h5>
