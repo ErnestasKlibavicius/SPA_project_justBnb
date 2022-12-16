@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                    <div v-if="bookings">
+                    <div v-if="bookings.length>0">
                         <ul class="list-group" v-for="booking in bookings">
                             <li class="list-group-item m-3">
                                 <div class="m-2">
@@ -30,7 +30,10 @@
                         </ul>
                     </div>
                     <div v-else>
-                        <h3>You haven't made any bookings yet</h3>
+                        <div class="m-4 p-5">
+                            <h3>You haven't made any bookings yet</h3>
+                        </div>
+
                     </div>
             </div>
         </div>
