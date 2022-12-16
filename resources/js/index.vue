@@ -27,6 +27,10 @@
                             My Bookings
                         </router-link>
 
+                        <router-link class="btn nav-button navai" :to="{ name: 'createBookable' }">
+                            Create bookable
+                        </router-link>
+
                         <span class="btn nav-button navai" @click="Logout">Logout</span>
 
                         <router-link class="btn nav-button navai" :to="{ name: 'basket' }">

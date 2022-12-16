@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Bookables from './bookables/Bookables.vue';
 import Bookable from './bookable/Bookable.vue';
 import BookableEdit from './bookable/BookableEdit.vue';
+import createBookable from './bookable/createBookable.vue';
 import Review from './review/Review.vue';
 import Basket from './basket/Basket.vue';
 import Login from './auths/Login.vue';
@@ -50,6 +51,11 @@ const routes =  [
         path: '/bookings',
         component: Bookings,
         name: "bookings"
+    },
+    {
+        path: '/createBookable',
+        component: createBookable,
+        name: "createBookable"
     }
 ];
 

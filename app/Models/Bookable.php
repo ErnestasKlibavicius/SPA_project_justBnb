@@ -14,6 +14,7 @@ class Bookable extends Model
         'title',
         'description',
         'price',
+        'user_id',
     ];
 
     public function user()

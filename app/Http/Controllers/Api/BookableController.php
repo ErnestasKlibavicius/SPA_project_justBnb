@@ -49,13 +49,15 @@ class BookableController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'price' => 'required'
+            'price' => 'required',
+            'user_id' => 'required'
         ]);
 
         $bookable = Bookable::create([
             'title' => $data['title'],
             'description' => $data['description'],
-            'price' =>  $data['price']
+            'price' =>  $data['price'],
+            'user_id' =>  $data['user_id']
         ]);
 
         return $bookable;
