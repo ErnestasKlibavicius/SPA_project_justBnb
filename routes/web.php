@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/docs', function () {
+    return \Illuminate\Support\Facades\File::get(public_path() . '/docs/index.html');
+});
+
 Route::get('/{any?}', function () {
     return view('welcome');
 })->where('any', '^(?!api\/)[\/\w\.\,-]*');
