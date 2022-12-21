@@ -7,6 +7,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * @group User
+ *
+ * Routes for managing the user resource
+ *
+ */
+
 class UserController extends Controller
 {
     public function __construct()
@@ -14,15 +21,18 @@ class UserController extends Controller
         $this->middleware('auth.role:user', ['except' => 'store']);
     }
     /**
-     * Display a listing of the resource.
+     * index
      *
+     * Display a listing of the users.
+     *
+     * @header Authorization: Bearer your_token
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         if(auth()->user()->hasRole('admin')) {
             return User::all();
-        } 
+        }
 
         return  response()->json([
             "status" => "403",
@@ -31,18 +41,11 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Create
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Store a newly created user in storage.
      *
+     * @header Authorization: Bearer your_token
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -66,8 +69,11 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show
      *
+     * Display the specified user.
+     *
+     * @header Authorization: Bearer your_token
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -84,19 +90,10 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Update
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
+     * Update the specified user in storage.
+     * @header Authorization: Bearer your_token
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -111,13 +108,13 @@ class UserController extends Controller
                 'email' => 'sometimes',
                 'password' => 'sometimes|min:8'
             ]);
-    
+
             $user->update([
                 'name' => array_key_exists('name', $data) ? $data['name'] : $user->name,
                 'email' => array_key_exists('email', $data) ? $data['email'] : $user->email,
                 'password' => array_key_exists('password', $data) ? Hash::make($data['password']) : $user->password,
             ]);
-    
+
             return $user;
         }
 
@@ -129,8 +126,11 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete
      *
+     * Remove the specified user from storage.
+     *
+     * @header Authorization: Bearer your_token
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -147,6 +147,6 @@ class UserController extends Controller
             "status" => "403",
             "message" =>  "Uppss... you cannot be peeking here"
         ], 403);
-       
+
     }
 }

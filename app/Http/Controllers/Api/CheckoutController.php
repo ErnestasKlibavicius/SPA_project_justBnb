@@ -11,8 +11,15 @@ use Illuminate\Http\Request;
 class CheckoutController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * checkout
      *
+     * Handle the checkout action request.
+     * @group Basket
+     * @header Authorization: Bearer your_token
+     *
+     * @response status=401 {
+     * "message": "Unauthenticated"
+     * }
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */

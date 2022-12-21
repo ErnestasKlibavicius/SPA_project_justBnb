@@ -13,10 +13,28 @@ class BookablePriceController extends Controller
     {
         $this->middleware('auth:api', ['except' => ['index', 'show']]);
     }
+
     /**
-     * Handle the incoming request.
+     * Price check
      *
-     * @param  \Illuminate\Http\Request  $request
+     * Check the price of the bookable resource
+     * @group Bookable
+     *
+     * @response status=200 {
+     * "data": {
+     * "total": 132,
+     * "breakdown": {
+     * "33": 4
+     * }
+     * }
+     * }
+     *
+     * @response status=401 {
+     * "message": "Unauthenticated"
+     * }
+     *
+     * @header Authorization: Bearer your_token
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke($id, Request $request)

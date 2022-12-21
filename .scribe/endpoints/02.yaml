@@ -1,0 +1,77 @@
+name: Booking
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/booking-by-review/{reviewKey}'
+    metadata:
+      groupName: Booking
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Booking by review'
+      description: 'Get booking by review.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      'Authorization:': 'Bearer your_token'
+    urlParameters:
+      reviewKey:
+        name: reviewKey
+        description: ''
+        required: true
+        example: voluptatem
+        type: string
+        custom: []
+    cleanUrlParameters:
+      reviewKey: voluptatem
+    queryParameters:
+      $reviewKey:
+        name: $reviewKey
+        description: uuid
+        required: false
+        example: placeat
+        type: string
+        custom: []
+    cleanQueryParameters:
+      $reviewKey: placeat
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "booking_id": 5,
+          "from": "2023-03-08",
+          "to": "2023-03-22",
+          "bookable": {
+          "bookable_id": 1,
+          "title": "Lemketown Cheap House",
+          "description": "Explicabo iure molestiae doloremque dolorem dolorum. Rerum quaerat odio eos. Quaerat molestiae aut ratione."
+          }
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

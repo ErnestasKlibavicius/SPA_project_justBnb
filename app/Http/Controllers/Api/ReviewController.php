@@ -8,6 +8,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ReviewResource;
 use App\Models\Booking;
 
+/**
+ * @group Review
+ *
+ * Routes for managing the review resource
+ *
+ */
+
 class ReviewController extends Controller
 {
 
@@ -16,16 +23,41 @@ class ReviewController extends Controller
         $this->middleware('auth.role:user', ['except' => 'index']);
     }
 
+    /**
+     * Index
+     *
+     * Display a listing of the resource.
+     *
+     * @header Authorization: Bearer your_token
+     */
     public function index()
     {
         return Review::all();
     }
 
+
+    /**
+     * Show
+     *
+     * Show the specified review.
+     *
+     * @header Authorization: Bearer your_token
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
         return new ReviewResource(Review::findOrFail($id));
     }
 
+
+    /**
+     * Create
+     *
+     * Create new review
+     *
+     * @header Authorization: Bearer your_token
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -52,6 +84,15 @@ class ReviewController extends Controller
         return new ReviewResource($review);
     }
 
+
+    /**
+     * Update
+     *
+     * Update the review
+     *
+     * @header Authorization: Bearer your_token
+     * @return \Illuminate\Http\Response
+     */
     public function update($id, Request $request)
     {
         $review = Review::findOrFail($id);
@@ -69,6 +110,16 @@ class ReviewController extends Controller
         // return new ReviewResource($review);
         return $review;
     }
+
+
+    /**
+     * Delete
+     *
+     * Delete the review
+     *
+     * @header Authorization: Bearer your_token
+     * @return \Illuminate\Http\Response
+     */
 
     public function destroy($id)
     {

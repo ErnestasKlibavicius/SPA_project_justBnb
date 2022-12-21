@@ -1,0 +1,1257 @@
+name: Bookable
+description: |-
+
+  Routes for managing the bookable resource
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/bookables
+    metadata:
+      groupName: Bookable
+      groupDescription: |-
+
+        Routes for managing the bookable resource
+      subgroup: ''
+      subgroupDescription: ''
+      title: Index
+      description: 'Display a listing of all Bookings.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+          {
+          "id": 1,
+          "title": "Lemketown Cheap House",
+          "description": "Explicabo iure molestiae doloremque dolorem dolorum. Rerum quaerat odio eos. Quaerat molestiae aut ratione."
+          },
+          {
+          "id": 2,
+          "title": "Blickport Cheap House",
+          "description": "Id debitis amet commodi eaque. Repellendus accusamus libero provident quidem quis. Alias veniam vitae deleniti autem. Eligendi sed maiores quisquam assumenda repellendus."
+          },
+          {
+          "id": 3,
+          "title": "Brooksmouth Rooms",
+          "description": "Numquam aspernatur ut voluptatem incidunt. Voluptate ut neque et ad harum. Quia maxime suscipit corporis rerum omnis."
+          },
+          {
+          "id": 4,
+          "title": "Hannafort House",
+          "description": "Voluptas magni et iste omnis iusto mollitia. Sint ipsa fugit a sunt. Natus unde voluptatem sit omnis nulla."
+          },
+          {
+          "id": 5,
+          "title": "Gulgowskiside Luxury Rooms",
+          "description": "Maiores labore quibusdam praesentium consequatur perferendis et. Nisi esse ab aut velit officia. Sint molestiae id fugit. Pariatur commodi rerum cupiditate nobis saepe in expedita."
+          },
+          {
+          "id": 6,
+          "title": "Lockmanmouth Cheap House",
+          "description": "Ratione molestias deserunt non commodi praesentium. Est perspiciatis commodi est. Fuga doloribus voluptas nemo dolorem. Voluptatem aliquam aut non voluptatem quo enim voluptas."
+          },
+          {
+          "id": 7,
+          "title": "Branditown Fancy Rooms",
+          "description": "Porro adipisci consectetur voluptatem corrupti assumenda odit et. In sit est omnis iusto id. Omnis et ut aut aut eius. Magni asperiores quis expedita quia neque ut tenetur."
+          },
+          {
+          "id": 8,
+          "title": "Lindgrenville Cheap Rooms",
+          "description": "Eius ducimus sed in corrupti. Veniam impedit et aut neque voluptas. Mollitia omnis enim culpa ut cum aliquam."
+          },
+          {
+          "id": 9,
+          "title": "Christychester Fancy Rooms",
+          "description": "Quis vel voluptatem minus reiciendis. Facilis sunt officia consequuntur ut. Quia earum laboriosam debitis. Consectetur fuga et voluptas consequuntur saepe iusto."
+          },
+          {
+          "id": 10,
+          "title": "Andersonmouth House",
+          "description": "Et totam et libero. Ullam quae dolores est consequuntur doloremque sint. Optio reprehenderit neque modi error reiciendis impedit."
+          },
+          {
+          "id": 11,
+          "title": "Altenwerthhaven Villa",
+          "description": "Sed eligendi hic qui. A vitae natus et nam quia non molestiae."
+          },
+          {
+          "id": 12,
+          "title": "Blandamouth Luxury Villas",
+          "description": "Quo rem sint ea nemo rerum beatae. Veritatis rerum exercitationem fugit. Velit omnis nostrum nesciunt adipisci. Distinctio quia nihil iure recusandae velit similique animi."
+          },
+          {
+          "id": 13,
+          "title": "New Emelychester Rooms",
+          "description": "Neque aut ipsum magni voluptates. Reiciendis voluptas reprehenderit unde eum sed rerum vero. Et dolorem molestiae eum enim optio quia. Est autem numquam cum sunt est."
+          },
+          {
+          "id": 14,
+          "title": "Port Kianaberg Luxury Rooms",
+          "description": "Et rem deleniti ut inventore deserunt et quo. A similique nihil libero saepe. Suscipit expedita similique optio magni id et quia. Eos laboriosam quam ipsum officiis non."
+          },
+          {
+          "id": 15,
+          "title": "West Shirley Rooms",
+          "description": "Nostrum laudantium vel commodi aut molestias et. Expedita et numquam in eligendi. Sint pariatur voluptas nihil eaque voluptatem libero et."
+          },
+          {
+          "id": 16,
+          "title": "Lake Franz House",
+          "description": "Repudiandae esse dolorem voluptatem et ea maxime. Ullam est unde quibusdam architecto. Rem pariatur possimus modi eaque natus corrupti ut."
+          },
+          {
+          "id": 17,
+          "title": "Deckowburgh Villa",
+          "description": "Reiciendis et ipsa et nam inventore animi perspiciatis eveniet. Corrupti vel adipisci officia velit distinctio. Id porro sit quod porro cupiditate."
+          },
+          {
+          "id": 18,
+          "title": "Gleichnerfurt Luxury Villas",
+          "description": "Et temporibus qui quo qui nisi voluptatem. Blanditiis eligendi quasi rerum repellendus rerum. Repellendus sed non ea velit. Sunt doloribus necessitatibus quia est quia sapiente blanditiis sequi."
+          },
+          {
+          "id": 19,
+          "title": "Pascalechester Cheap Rooms",
+          "description": "Qui cumque perspiciatis voluptas. Quae aliquid harum sunt amet quam. Voluptatum id rerum ut eos quo cupiditate nihil. Provident quia quod cum culpa numquam minima aut."
+          },
+          {
+          "id": 20,
+          "title": "Boyleton Villa",
+          "description": "Aut non quis libero placeat rerum sit. Voluptatem harum quisquam doloribus eos. Qui dolores maiores fugiat architecto quaerat."
+          },
+          {
+          "id": 21,
+          "title": "South Patrickstad Luxury Rooms",
+          "description": "Doloremque in aut accusamus ab. Sint reprehenderit consequuntur possimus sed. Voluptas voluptatem commodi soluta qui maiores."
+          },
+          {
+          "id": 22,
+          "title": "East Julien Cheap House",
+          "description": "Voluptas et tempore aut mollitia quam. Ratione praesentium rerum quibusdam autem deleniti. Reprehenderit architecto exercitationem est qui quae inventore facere. Id sit ad occaecati tempora."
+          },
+          {
+          "id": 23,
+          "title": "Lake Angel Cheap House",
+          "description": "Quisquam corporis et consequatur nobis vitae odit est. Sit voluptatem molestias et sit nobis."
+          },
+          {
+          "id": 24,
+          "title": "Dachtown Luxury Rooms",
+          "description": "Et iusto soluta officia quis exercitationem perferendis. Ratione consequuntur quo eum mollitia et ratione repudiandae repellat. Consequatur ipsam error explicabo."
+          },
+          {
+          "id": 25,
+          "title": "North Melisashire House",
+          "description": "Vel corrupti possimus voluptates expedita sequi occaecati tenetur. Optio consequatur quia aperiam qui. Qui beatae numquam velit voluptatem. Eius aut cupiditate voluptate eum."
+          },
+          {
+          "id": 26,
+          "title": "Ignaciostad Luxury Rooms",
+          "description": "Sed voluptatibus accusamus sint at quia alias. Saepe omnis aut recusandae fuga. Laudantium qui aliquid veritatis a."
+          },
+          {
+          "id": 27,
+          "title": "Gradyberg Villa",
+          "description": "Non placeat et officia voluptas. Optio doloribus est dolorum quia. Quidem voluptatum aut excepturi quisquam."
+          },
+          {
+          "id": 28,
+          "title": "West Ashlymouth Cottage",
+          "description": "Quis et illo voluptatem ut. Voluptate dolor ea architecto omnis qui natus saepe. Tempore et nobis iste explicabo enim eius."
+          },
+          {
+          "id": 29,
+          "title": "Lake Conradchester House",
+          "description": "Consequatur dignissimos iusto rem hic sint neque. Assumenda sint officiis sit nostrum ea. Suscipit dolores vel quam culpa totam molestiae vero. Ut ut sed fugit."
+          },
+          {
+          "id": 30,
+          "title": "Port Bessie Cheap Rooms",
+          "description": "Veniam labore dolorum aliquid esse tenetur repellendus. Tenetur fugiat animi quia sapiente quisquam. Nemo pariatur dignissimos quia eum voluptatem sit iusto."
+          },
+          {
+          "id": 31,
+          "title": "Zakarymouth Cheap Rooms",
+          "description": "Corrupti doloremque cupiditate dolor aut. Explicabo assumenda rerum harum eveniet animi minima voluptatibus voluptatum. Ab rerum explicabo nam odio qui. Veniam culpa nulla omnis ab."
+          },
+          {
+          "id": 32,
+          "title": "Susanahaven Cheap House",
+          "description": "Maxime consequatur molestias placeat. Repellendus dolores explicabo dolor omnis quam nemo. Autem sunt accusamus voluptas consequatur sint quo consectetur."
+          },
+          {
+          "id": 33,
+          "title": "New Alexaneburgh Villa",
+          "description": "Porro molestias accusantium dolor dolore qui dolore. Sed et nisi voluptas ut est sunt. Pariatur quibusdam quisquam dolore. Quo nostrum est in sit."
+          },
+          {
+          "id": 34,
+          "title": "Benedictfurt Fancy Rooms",
+          "description": "Nemo dignissimos cumque facere dicta quis et alias. Itaque perferendis maxime voluptates et."
+          },
+          {
+          "id": 35,
+          "title": "Port Josiannetown Cheap Rooms",
+          "description": "Sint aspernatur alias corporis itaque ad cumque. Expedita nihil natus voluptate repudiandae. Et quasi culpa quia eaque placeat perferendis nobis."
+          },
+          {
+          "id": 36,
+          "title": "North Odaburgh House",
+          "description": "Ab tempora et sequi corporis sed. Earum ratione accusamus nam velit dolorem. Minus a delectus id et sequi ut."
+          },
+          {
+          "id": 37,
+          "title": "Idellland House",
+          "description": "Molestiae voluptatem quia quo quos id dolores maiores. A rerum aperiam reprehenderit atque rerum. Aut ea libero explicabo architecto deleniti recusandae sed. Ipsam nihil earum quo reiciendis quo ut."
+          },
+          {
+          "id": 38,
+          "title": "West Shane Cheap Rooms",
+          "description": "A unde veniam quia neque. Unde consequatur ab deserunt culpa. Laboriosam est esse dicta id ut."
+          },
+          {
+          "id": 40,
+          "title": "Isaiville Rooms",
+          "description": "In ab aut suscipit ratione nihil. Suscipit corporis quam autem qui fugit. Amet ex reiciendis sunt ea veritatis in."
+          },
+          {
+          "id": 41,
+          "title": "South Bessie Cheap Rooms",
+          "description": "Rerum ab explicabo consequuntur minima voluptas delectus. Dicta incidunt aut totam. Delectus natus quidem laborum ratione et minima."
+          },
+          {
+          "id": 42,
+          "title": "Bayershire Cheap House",
+          "description": "Cupiditate id sit iure dolorum a dolorum quis. Asperiores harum ratione quasi voluptates. Deleniti architecto expedita qui veniam. Aut nostrum harum laboriosam quos commodi sit quos ut."
+          },
+          {
+          "id": 43,
+          "title": "Ethelshire House",
+          "description": "Omnis qui praesentium modi aut eos minima id repudiandae. Consequuntur ut provident nobis aspernatur quod. Voluptatem rerum qui quia ullam et."
+          },
+          {
+          "id": 44,
+          "title": "Jadefurt Cottage",
+          "description": "Veritatis deserunt rem eum nisi. Sed ex velit aut sit in voluptatem veritatis nisi."
+          },
+          {
+          "id": 45,
+          "title": "Gradyburgh Cottage",
+          "description": "In laboriosam voluptates alias dolorum. Minima nulla aut eveniet quia dolore libero aut optio. Sit nulla quis eaque sit atque ea ut."
+          },
+          {
+          "id": 46,
+          "title": "Daishafurt Cheap Rooms",
+          "description": "Et blanditiis dolores et numquam sit pariatur. Necessitatibus minus sapiente sint numquam. Excepturi explicabo facilis eos eos similique."
+          },
+          {
+          "id": 47,
+          "title": "Jessside Cottage",
+          "description": "At voluptatum qui pariatur consequatur. Rerum et et est suscipit ipsum accusamus. Molestiae eligendi blanditiis pariatur perspiciatis recusandae amet. Aut ut vero expedita accusamus aut quas."
+          },
+          {
+          "id": 48,
+          "title": "East Daniella Fancy Rooms",
+          "description": "Dolor distinctio molestias eligendi qui provident repellendus. Consequatur voluptatum consequatur et eum qui. Quo ut optio asperiores ut iure."
+          },
+          {
+          "id": 49,
+          "title": "Faustinobury Fancy Rooms",
+          "description": "Aut voluptates minima non in. Quam dolore voluptatem totam quaerat rerum pariatur omnis."
+          },
+          {
+          "id": 50,
+          "title": "Rennerberg Rooms",
+          "description": "Aspernatur autem omnis inventore vel officiis temporibus neque est. Et vero rerum explicabo autem."
+          },
+          {
+          "id": 51,
+          "title": "East Albinburgh Luxury Villas",
+          "description": "Placeat atque aut voluptatibus cum praesentium tenetur natus eligendi. Provident velit quibusdam sunt vitae porro voluptates blanditiis. Et quia illo maiores blanditiis veritatis."
+          },
+          {
+          "id": 52,
+          "title": "Port Linwoodmouth Cottage",
+          "description": "Est ut et excepturi corrupti quia. Omnis nostrum saepe ut velit blanditiis fuga. A voluptatem amet aliquam animi asperiores. Aut rerum aut et rerum architecto."
+          },
+          {
+          "id": 53,
+          "title": "Uptontown House",
+          "description": "Ut nemo voluptas ducimus beatae dolor soluta id. Enim quisquam et unde facilis. Cum laboriosam perferendis id tenetur. Deserunt praesentium labore in et."
+          },
+          {
+          "id": 54,
+          "title": "Mayertmouth Fancy Rooms",
+          "description": "Autem aut rerum atque deserunt iure. Quia labore totam modi odio ipsum nam non ducimus."
+          },
+          {
+          "id": 55,
+          "title": "Kozeyshire Luxury Villas",
+          "description": "Praesentium assumenda incidunt sunt. Labore impedit et ut architecto iusto facilis voluptatem. Nobis nobis ut harum est soluta. Voluptatum fugit ut sint asperiores autem."
+          },
+          {
+          "id": 56,
+          "title": "Gerholdview Cottage",
+          "description": "Ratione ut quod molestiae. Illum maiores et vel ad quis non nostrum. Et unde eveniet blanditiis aut. Fugiat molestias eum voluptate earum et eveniet voluptas quisquam."
+          },
+          {
+          "id": 57,
+          "title": "Leuschkehaven Rooms",
+          "description": "Deserunt nesciunt dolorem animi cumque. Qui tenetur voluptas alias ut recusandae. Nesciunt incidunt consectetur labore consequatur. Impedit praesentium cupiditate qui velit consectetur natus odit."
+          },
+          {
+          "id": 58,
+          "title": "Darefurt Cottage",
+          "description": "Omnis ipsam ea dolor minima quisquam temporibus quas. Quos perspiciatis qui quo veritatis. Ut ea et quidem doloribus cupiditate rerum."
+          },
+          {
+          "id": 59,
+          "title": "Lake Emie Luxury Rooms",
+          "description": "Qui soluta autem sed. Nisi adipisci maxime ipsum voluptatem sapiente. Quisquam odio omnis fugiat. Sint facilis culpa non et ut laboriosam ratione."
+          },
+          {
+          "id": 60,
+          "title": "East Berthaside Rooms",
+          "description": "Laborum similique consequatur numquam ipsam non distinctio corrupti. Et numquam sit quas voluptatem. Quasi doloribus minus ipsam sequi cumque."
+          },
+          {
+          "id": 61,
+          "title": "Andersontown Cheap Rooms",
+          "description": "Sit vitae voluptas eius. Sint sint ut sunt id. Consequatur sint saepe dolorum sed ut sint. Dolores officia unde illo doloremque. Quasi ipsum et doloremque et."
+          },
+          {
+          "id": 62,
+          "title": "Cotystad Cheap House",
+          "description": "Occaecati minus iure eius voluptatem alias. Consequuntur dolore et earum qui. Temporibus nihil excepturi inventore aut blanditiis quod. Sunt eum labore dolore quae eaque corrupti accusantium."
+          },
+          {
+          "id": 63,
+          "title": "East Merlmouth Villa",
+          "description": "Dolor est aut quia unde non et qui. Aut magnam quae sit et praesentium et officiis ratione. Adipisci repellendus iure rerum dolorum officia ducimus quia ea."
+          },
+          {
+          "id": 64,
+          "title": "West Zachariah Villa",
+          "description": "Nisi officiis et voluptatem consectetur nulla quidem quo. Placeat voluptatum quod autem et distinctio doloribus similique sed."
+          },
+          {
+          "id": 65,
+          "title": "Jacobsontown Luxury Rooms",
+          "description": "Ipsa corrupti delectus sunt et provident. Rerum adipisci fugiat in et qui a. Quia aut possimus consequatur tempore."
+          },
+          {
+          "id": 66,
+          "title": "New Mazie Cheap Rooms",
+          "description": "Ut occaecati animi in sapiente nulla doloremque. Nostrum mollitia asperiores dolorem similique. Dignissimos non nulla aut ipsam eius omnis. Excepturi magni id ab omnis unde sit quibusdam."
+          },
+          {
+          "id": 67,
+          "title": "Kuhnmouth Villa",
+          "description": "Velit maxime quo vel dolorem. Ratione facere cupiditate ullam natus eius libero explicabo. Dolor rerum vel omnis aliquid."
+          },
+          {
+          "id": 68,
+          "title": "Kilbackberg Cottage",
+          "description": "Delectus ut vel qui facilis voluptates ut pariatur. Adipisci fugit officia dolores. Consequatur ut velit commodi veniam alias qui."
+          },
+          {
+          "id": 69,
+          "title": "South Joanny House",
+          "description": "Rerum quis repudiandae aut. Ut provident dolores consequatur qui exercitationem. Aliquid dolorum voluptatem blanditiis."
+          },
+          {
+          "id": 70,
+          "title": "East Ashlynn Rooms",
+          "description": "Cumque in est quis. Officia suscipit occaecati voluptatum placeat. Similique repellendus vero quos nisi minima ut."
+          },
+          {
+          "id": 71,
+          "title": "Orenville Luxury Villas",
+          "description": "Soluta corporis numquam ea praesentium dolor id. Est sint ad temporibus excepturi vitae ab nihil ad. Aut et praesentium incidunt dolor inventore accusamus ut."
+          },
+          {
+          "id": 72,
+          "title": "East Orpha Fancy Rooms",
+          "description": "Sint amet nisi itaque velit sint. Error perspiciatis est maxime id. Et quis ex est aperiam. Sunt repellat placeat possimus. Cum quidem omnis aliquam ipsa vitae fugiat magni."
+          },
+          {
+          "id": 73,
+          "title": "North Luciano Luxury Villas",
+          "description": "Quo qui aut nihil minima quibusdam dignissimos autem. Totam ut quo eaque quia sequi sint aut. Quia expedita magni itaque quae praesentium est totam."
+          },
+          {
+          "id": 74,
+          "title": "Kendallbury Luxury Rooms",
+          "description": "Et similique aliquam et id quia. Autem sit nesciunt sint aut sint incidunt. Non enim et eveniet delectus qui."
+          },
+          {
+          "id": 75,
+          "title": "O'Konchester Cheap House",
+          "description": "Qui animi laborum quia quia. Velit ullam quod aliquam velit accusamus. Laboriosam molestiae autem optio eaque doloribus quasi. Officiis culpa tempora dolores pariatur ducimus."
+          },
+          {
+          "id": 76,
+          "title": "North Marinaton House",
+          "description": "Doloremque fuga perferendis molestias culpa est. Quae magni nihil aliquid quaerat quis architecto. Rerum neque eius expedita et nemo."
+          },
+          {
+          "id": 77,
+          "title": "Hartmannhaven Cottage",
+          "description": "Exercitationem et vero suscipit accusantium sapiente. Ipsam ut sit sint minima perferendis omnis incidunt. Ut harum explicabo neque corporis et."
+          },
+          {
+          "id": 78,
+          "title": "Ceciliaborough Luxury Rooms",
+          "description": "Dolorum nihil consequuntur voluptatem eius esse accusamus tempora adipisci. Laborum velit amet nesciunt maiores aspernatur architecto."
+          },
+          {
+          "id": 79,
+          "title": "South Edd Cottage",
+          "description": "Et illum voluptatem sed adipisci. Sint tempore est id dolor nesciunt rem. Eos dolore nihil cumque quis occaecati dolor. Quia assumenda reiciendis molestiae assumenda sunt."
+          },
+          {
+          "id": 80,
+          "title": "Ethelynmouth Luxury Rooms",
+          "description": "Tempora magni quo doloribus soluta pariatur repudiandae. Ut et quo mollitia eligendi est ab. Ea enim ipsum exercitationem voluptatem."
+          },
+          {
+          "id": 81,
+          "title": "New Monserrate Luxury Villas",
+          "description": "Dicta repudiandae omnis voluptates odit est. Odio aut reprehenderit ut cum amet maiores beatae. Iure et aperiam aut maxime."
+          },
+          {
+          "id": 82,
+          "title": "East Frankie Luxury Villas",
+          "description": "Temporibus eos eveniet nostrum quia dolorem ut aut. Aliquid voluptatem non voluptates corporis accusamus expedita modi aut. Hic corrupti vel consequatur ipsa. Ut voluptatum corporis modi nemo."
+          },
+          {
+          "id": 83,
+          "title": "Bradtkeland Cheap House",
+          "description": "Eaque corrupti fuga distinctio. Itaque est qui non sapiente consequatur ratione eos. Ad at placeat culpa vel in. Aliquid qui quia non ipsum ut."
+          },
+          {
+          "id": 84,
+          "title": "Baumbachstad Cheap Rooms",
+          "description": "Omnis qui dolor deleniti sed. Qui nemo illo molestias quisquam totam numquam tenetur. Sint temporibus qui velit id accusantium. Illum sed et soluta enim nesciunt. At aliquid enim ut quod."
+          },
+          {
+          "id": 85,
+          "title": "Rosalindton Luxury Rooms",
+          "description": "Harum illo neque consequuntur et sequi non. Dolor illum cupiditate atque rerum unde omnis eos. Explicabo voluptas quia quo. Aliquam consequatur quibusdam nam architecto libero natus."
+          },
+          {
+          "id": 86,
+          "title": "Port Jane Luxury Villas",
+          "description": "Placeat qui eaque reprehenderit adipisci maiores ut. Totam quaerat itaque consequatur quis. Facere est omnis porro."
+          },
+          {
+          "id": 87,
+          "title": "Luismouth Cheap House",
+          "description": "Suscipit voluptatem nemo id. Sunt dolor repellendus rerum est aut a. Veniam aliquam qui est officia qui."
+          },
+          {
+          "id": 88,
+          "title": "Enaland Luxury Villas",
+          "description": "Autem dolore rerum excepturi aut iusto sed commodi. Nihil laborum corporis ratione dolore et qui et."
+          },
+          {
+          "id": 89,
+          "title": "Fadelland Luxury Rooms",
+          "description": "Fuga velit incidunt rerum sit ut enim. Eius adipisci similique hic soluta rerum officia. Id laudantium aliquid nihil temporibus tenetur et."
+          },
+          {
+          "id": 90,
+          "title": "East Jennyfer Cottage",
+          "description": "Maxime in dolorem repellat. Unde laboriosam sit quibusdam est totam iusto. Atque tempora omnis corrupti mollitia temporibus."
+          },
+          {
+          "id": 91,
+          "title": "Boehmbury Cheap House",
+          "description": "Et dignissimos omnis molestiae laudantium soluta. Corporis adipisci id magni enim alias. Perferendis voluptatem repellat ut."
+          },
+          {
+          "id": 92,
+          "title": "East Lourdesberg House",
+          "description": "Nihil suscipit commodi iure ipsa dolore enim ratione. Architecto in tempore voluptate quas dicta et. Fugiat est veniam non. Blanditiis voluptatem voluptas autem reiciendis qui vel."
+          },
+          {
+          "id": 93,
+          "title": "West Alainaburgh Cheap House",
+          "description": "Ipsam rerum quis voluptatibus vitae ab voluptatem. Nam sint quae itaque qui nisi eaque. Animi inventore est quisquam nihil. Repudiandae repellendus exercitationem aliquid esse quos vero eos."
+          },
+          {
+          "id": 94,
+          "title": "Port Michelview Fancy Rooms",
+          "description": "Cum iusto libero architecto officia sed mollitia. Assumenda quod nam neque incidunt rem. Veritatis qui ullam voluptatem."
+          },
+          {
+          "id": 95,
+          "title": "Alberthaville Luxury Villas",
+          "description": "Minus rerum quasi quod aut deleniti doloremque soluta. Recusandae ut quo molestiae. Exercitationem natus repellendus quaerat nulla. Officia ab ratione quia quod temporibus eius."
+          },
+          {
+          "id": 96,
+          "title": "Garrettshire Villa",
+          "description": "Impedit natus voluptate recusandae laboriosam nam. Voluptatem consequatur dolores ullam. Ad alias aut explicabo numquam natus explicabo ipsa."
+          },
+          {
+          "id": 97,
+          "title": "Abagailland Cheap House",
+          "description": "Aperiam distinctio doloremque laborum fuga quibusdam quod iusto. Ducimus perferendis ex eum repudiandae ut. Distinctio error necessitatibus vel reiciendis."
+          },
+          {
+          "id": 98,
+          "title": "Spinkaberg Cottage",
+          "description": "Recusandae et non odio amet assumenda. Est consequatur beatae iste labore libero. Earum corrupti voluptatibus atque dolore. Dignissimos facilis consectetur sint odio sed."
+          },
+          {
+          "id": 99,
+          "title": "Elmorestad Cheap Rooms",
+          "description": "Ducimus ullam ut eligendi blanditiis reprehenderit debitis. Ea qui dicta minus aperiam. Quae praesentium veritatis ad id."
+          },
+          {
+          "id": 100,
+          "title": "Swiftstad Cheap Rooms",
+          "description": "Nobis repellat repudiandae cumque unde officiis. Ex fugit eum suscipit id officiis exercitationem. Tenetur in corporis laborum voluptate dolores perferendis ratione iste."
+          },
+          {
+          "id": 101,
+          "title": "testas 123",
+          "description": "super test"
+          },
+          {
+          "id": 102,
+          "title": "testasssss",
+          "description": "adsdas"
+          },
+          {
+          "id": 106,
+          "title": "asddasdas",
+          "description": "asddasasd"
+          }
+          ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/bookables
+    metadata:
+      groupName: Bookable
+      groupDescription: |-
+
+        Routes for managing the bookable resource
+      subgroup: ''
+      subgroupDescription: ''
+      title: Create
+      description: 'Store a newly created Booking in storage'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      'Authorization:': 'Bearer your_token'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: ''
+        required: true
+        example: voluptas
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: exercitationem
+        type: string
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: sit
+        type: string
+        custom: []
+      user_id:
+        name: user_id
+        description: ''
+        required: true
+        example: occaecati
+        type: string
+        custom: []
+    cleanBodyParameters:
+      title: voluptas
+      description: exercitationem
+      price: sit
+      user_id: occaecati
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "id": 101,
+          "title": "testas 123",
+          "description": "super test",
+          "created_at": "2022-12-16T08:11:56.000000Z",
+          "updated_at": "2022-12-21T13:05:37.000000Z",
+          "price": 200,
+          "user_id": 1
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/bookables/{id}'
+    metadata:
+      groupName: Bookable
+      groupDescription: |-
+
+        Routes for managing the bookable resource
+      subgroup: ''
+      subgroupDescription: ''
+      title: Show
+      description: 'Display the specified Booking.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the bookable.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":1,"title":"Lemketown Cheap House","description":"Explicabo iure molestiae doloremque dolorem dolorum. Rerum quaerat odio eos. Quaerat molestiae aut ratione.","user_id":53,"price":33}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/bookables/{id}'
+    metadata:
+      groupName: Bookable
+      groupDescription: |-
+
+        Routes for managing the bookable resource
+      subgroup: ''
+      subgroupDescription: ''
+      title: Update
+      description: 'Update the Booking resource.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      'Authorization:': 'Bearer your_token'
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the bookable.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "id": 101,
+          "title": "testas 123",
+          "description": "super test",
+          "created_at": "2022-12-16T08:11:56.000000Z",
+          "updated_at": "2022-12-21T13:05:37.000000Z",
+          "price": 200,
+          "user_id": 1
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/bookables/{id}'
+    metadata:
+      groupName: Bookable
+      groupDescription: |-
+
+        Routes for managing the bookable resource
+      subgroup: ''
+      subgroupDescription: ''
+      title: Remove
+      description: 'Remove the specified resource from storage.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      'Authorization:': 'Bearer your_token'
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the bookable.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "id": 104,
+          "title": "daasd",
+          "description": "dasasd",
+          "created_at": "2022-12-16T08:13:59.000000Z",
+          "updated_at": "2022-12-16T08:13:59.000000Z",
+          "price": 11,
+          "user_id": 1,
+          "user": {
+          "id": 1,
+          "name": "Westley Langosh",
+          "email": "bartoletti.virginie@example.net",
+          "email_verified_at": "2022-12-15T19:44:54.000000Z",
+          "created_at": "2022-12-15T19:44:54.000000Z",
+          "updated_at": "2022-12-15T19:44:54.000000Z"
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: |-
+          {
+          "status": "403",
+          "message": "Uppss... you cannot be peeking here"
+          }
+        headers: []
+        description: Forbidden
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/bookables/{bookable_id}/availability'
+    metadata:
+      groupName: Bookable
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: Availability
+      description: 'Check the availability of the bookable resource'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      'Authorization:': 'Bearer your_token'
+    urlParameters:
+      bookable_id:
+        name: bookable_id
+        description: 'The ID of the bookable.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      bookable_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      from:
+        name: from
+        description: 'Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>now</code>.'
+        required: true
+        example: '2084-07-28'
+        type: string
+        custom: []
+      to:
+        name: to
+        description: 'Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>from</code>.'
+        required: true
+        example: '2120-11-13'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      from: '2084-07-28'
+      to: '2120-11-13'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          []
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/bookables/{bookable_id}/reviews'
+    metadata:
+      groupName: Bookable
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Bookable reviews'
+      description: 'Get the bookable resource reviews'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      'Authorization:': 'Bearer your_token'
+    urlParameters:
+      bookable_id:
+        name: bookable_id
+        description: 'The ID of the bookable.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      bookable_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 5,
+          "content": "Quo aut temporibus dolorem blanditiis. Eos voluptas reiciendis rerum corporis aut id. Perferendis velit rem dolorem soluta occaecati atque. Numquam voluptatem aut atque soluta qui voluptatibus dolore. Excepturi quis fugit sint eum."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 3,
+          "content": "Eos dolorum temporibus debitis non. Et ducimus quas neque eaque quasi eos. Rem quis ad consequatur illo non eos. Aperiam non voluptatibus vero eaque. Ipsam esse omnis sunt tempore molestias quia eius."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 5,
+          "content": "Qui labore voluptatem at ea cupiditate. Quam tenetur quas provident quae ut ullam non. Voluptatem officia hic enim qui eos est. Neque et earum rerum nostrum. Ab necessitatibus qui sint velit quaerat ipsam."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 4,
+          "content": "Sed nihil sed quia ratione voluptatum laborum sunt. Eveniet ullam incidunt doloribus et laboriosam excepturi corporis. Accusamus in ut incidunt corrupti. Et ut non distinctio dolore atque ipsam distinctio. Sed consequuntur et officiis repudiandae."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 1,
+          "content": "Dolor sint et dignissimos temporibus. Aperiam et sint commodi consequatur. Sunt repudiandae sit optio aliquam. Laboriosam repudiandae placeat enim id maiores atque. Necessitatibus aliquid nihil sequi pariatur eius dolor est."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 4,
+          "content": "Vel voluptatibus ipsum perferendis in ipsam est non aut. Voluptates cupiditate eaque aut. Et hic eos a illum occaecati minima voluptatem iste. Ea pariatur et nulla deserunt cumque hic. Sit neque voluptatum qui commodi quas id unde."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 4,
+          "content": "Voluptatibus eum eum quia vero rem sit. Consectetur corporis quos asperiores mollitia maiores voluptate sint. Ut ut ad voluptates exercitationem ut. Quia qui ipsa facilis consectetur perspiciatis. Sint maxime accusamus earum qui quasi provident placeat."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 3,
+          "content": "Provident consectetur iste voluptatem voluptas et. Non ut sequi ut. Voluptas iure quae sint fugit dignissimos odio dolor. Aut consectetur corporis aut enim laudantium quisquam. Velit explicabo ut necessitatibus saepe ut voluptatem quam eligendi."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 2,
+          "content": "Vitae dolorum et iusto quia quia. Aut sint expedita officiis. Est commodi ut ratione ex dolores delectus. Fuga a et odio eligendi voluptatem est corrupti. Voluptas facere repudiandae aliquam est enim dolorem vel aspernatur."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 1,
+          "content": "Dolores corporis quam dolor accusamus alias. Consequuntur eveniet dignissimos mollitia. Et voluptates a natus voluptas neque. Fugit dignissimos libero sed consequuntur et rerum dolorem sint. Iure numquam est quod voluptas."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 3,
+          "content": "Cum et esse consequatur consequuntur error. Est id qui sint illo. Et ut voluptas dignissimos repellat ea iusto dignissimos. Recusandae placeat fugit illo sunt cupiditate quasi. Et laborum debitis quia ut."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 3,
+          "content": "Ut qui officiis voluptatem dolores. Aliquam beatae laborum quia tempora. Sequi quod reprehenderit occaecati in. Beatae ut magni rerum ipsum non quos et rerum. Tenetur ut magnam provident dicta quia."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 5,
+          "content": "Fugiat voluptatem et ullam iste consequuntur autem doloribus. Velit sed esse dicta dolorem. Corporis repellendus odio et quae voluptatem ipsum dolores. Ipsam excepturi harum autem sit. Odit non ipsam inventore suscipit rerum."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 5,
+          "content": "Quia vero et necessitatibus perspiciatis ut distinctio. Iste ex voluptates ut tempore asperiores voluptas. Similique rerum laborum qui vero officiis. Rerum enim nesciunt porro consequatur ullam eos perferendis beatae. Nesciunt corrupti officiis vel aspernatur id saepe est."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 3,
+          "content": "Doloremque tenetur corrupti repellat aut. Saepe ut et fugit perferendis vero. Nihil ut laboriosam nisi mollitia earum reprehenderit. Voluptate modi temporibus totam impedit. Ratione ut voluptates id nihil id architecto."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 3,
+          "content": "Laboriosam nemo omnis ipsam cupiditate et qui explicabo. Inventore libero autem aut nostrum et officiis animi doloribus. Deserunt ratione ut tenetur impedit porro. Similique exercitationem enim rem quae laborum. Voluptatem ad repellendus dolor atque culpa."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 2,
+          "content": "Libero autem nam adipisci facilis sint nobis dolores maiores. Quae sit vitae itaque maiores deserunt at odio. Explicabo rerum ipsam quam quas odio quo officiis consectetur. Autem harum quaerat non in. Labore consequatur dolores explicabo qui quisquam et quia."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 1,
+          "content": "Cum quia asperiores perferendis molestias. Molestias repellendus voluptates architecto sed consequatur inventore. Iusto quam facilis et qui. Soluta quis ratione dolores delectus tempora. Fugit officia dolor placeat nesciunt sapiente nihil."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 4,
+          "content": "Quae reiciendis mollitia consequuntur fuga. Vitae rem molestiae quia. Laudantium tempora eos sunt explicabo. Esse ut placeat deserunt quia. Quis aut modi velit iure natus eligendi."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 3,
+          "content": "Eveniet non odio quos iusto. Impedit temporibus ad at et numquam dolores. Corporis aliquam ea itaque autem alias. Similique at est aut fugit debitis fugit nihil. Dolor et excepturi dolor vero laudantium sunt."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 4,
+          "content": "Odit autem enim error. Velit labore ex officia ea nostrum a quae. Qui veritatis dolorum perferendis qui dolor eum voluptas. Repudiandae quia amet autem quisquam. Esse explicabo sit mollitia assumenda."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 4,
+          "content": "Rerum dolore non et ad sit vel. Veritatis tempore praesentium a. Incidunt quibusdam et non voluptas rerum. Vel quidem rem distinctio minima ipsam. Excepturi neque provident officiis itaque."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 2,
+          "content": "Eligendi est qui quia aut quis. Dolor eum sit molestiae fugit reprehenderit. Magnam dolor et debitis ut aliquid. Occaecati doloribus non ut eos quis. Dolor suscipit facilis corrupti perferendis."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 3,
+          "content": "Non sint ab explicabo ipsa aliquid ad. Quas doloremque recusandae autem. Amet nihil sint reprehenderit numquam nisi. Similique id nihil quos id qui. Quia nihil labore numquam omnis reprehenderit."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 5,
+          "content": "Porro quis ipsum voluptatibus esse. Perferendis voluptas maiores quis vero dolor quibusdam dolores incidunt. Et veniam quae aut. Facilis et magni quia praesentium. Voluptas eligendi quisquam molestiae in quas consequatur."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 2,
+          "content": "Dicta atque et aut expedita. Optio quae qui dicta. Dolorem maxime aut iure earum nostrum blanditiis aut. Laborum nulla quia officia deserunt. Est mollitia facilis inventore esse veniam voluptatem consequatur."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 4,
+          "content": "Aspernatur sed ut sint modi vero et. Sunt dolorem aut commodi distinctio. Tempore error ea qui neque. Rerum consequuntur qui magni pariatur. Voluptates ea vitae et molestias repellat magni."
+          },
+          {
+          "created_at": "2022-12-15T19:44:55.000000Z",
+          "rating": 2,
+          "content": "Aperiam commodi doloremque tempore nisi molestiae voluptatem. Blanditiis id fuga et ut saepe. Ipsa totam voluptates aut optio ut omnis voluptas. Dolor voluptatibus quibusdam sapiente recusandae quia unde nihil. Nemo fuga aut ratione ut voluptas quae eaque."
+          }
+          ]
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/bookables/{bookable_id}/price'
+    metadata:
+      groupName: Bookable
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Price check'
+      description: 'Check the price of the bookable resource'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      'Authorization:': 'Bearer your_token'
+    urlParameters:
+      bookable_id:
+        name: bookable_id
+        description: 'The ID of the bookable.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      bookable_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      from:
+        name: from
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: true
+        example: '2022-12-21'
+        type: string
+        custom: []
+      to:
+        name: to
+        description: 'Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>from</code>.'
+        required: true
+        example: '2090-07-21'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      from: '2022-12-21'
+      to: '2090-07-21'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "total": 132,
+          "breakdown": {
+          "33": 4
+          }
+          }
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/bookables/{bookable}/author'
+    metadata:
+      groupName: Bookable
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'bookable Author'
+      description: 'Get the bookable resource author.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      'Authorization:': 'Bearer your_token'
+    urlParameters:
+      bookable:
+        name: bookable
+        description: 'The bookable.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      bookable: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":53,"name":"Mossie Legros","email":"gerson24@example.net","email_verified_at":"2022-12-15T19:44:54.000000Z","created_at":"2022-12-15T19:44:54.000000Z","updated_at":"2022-12-15T19:44:54.000000Z"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

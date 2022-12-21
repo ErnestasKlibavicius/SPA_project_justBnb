@@ -8,6 +8,13 @@ use App\Models\Bookable;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+/**
+ * @group Comment
+ *
+ * Routes for managing the comment resource
+ *
+ */
+
 class CommentController extends Controller
 {
     public function __construct()
@@ -15,8 +22,11 @@ class CommentController extends Controller
         $this->middleware('auth:api', ['except' => ['index', 'show']]);
     }
     /**
+     * Index
+     *
      * Display a listing of the resource.
      *
+     * @header Authorization: Bearer your_token
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -25,19 +35,12 @@ class CommentController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Create
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @header Authorization: Bearer your_token
      * @return \Illuminate\Http\Response
      */
     public function store($post_id, $user_id, Request $request)
@@ -45,17 +48,17 @@ class CommentController extends Controller
         if(auth()->user()->hasRole('admin') || auth()->user()->id == $user_id) {
             $bookable = Bookable::findOrFail($post_id);
             $user = User::findOrFail($user_id);
-    
+
             $data = $request->validate([
                 'content' => 'required|min:3',
             ]);
-    
+
             $comment = Comment::create([
                 'content' => $data['content'],
                 'user_id' => $user->id,
                 'bookable_id' => $bookable->id,
             ]);
-    
+
             return $comment;
         }
 
@@ -63,12 +66,16 @@ class CommentController extends Controller
             "status" => "403",
             "message" =>  "Uppss... you cannot be peeking here"
         ], 403);
-     
+
     }
 
     /**
+     * Show
+     *
      * Display the specified resource.
      *
+     *
+     * @header Authorization: Bearer your_token
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -78,19 +85,12 @@ class CommentController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Update
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
+     *
+     * @header Authorization: Bearer your_token
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -98,7 +98,7 @@ class CommentController extends Controller
     public function update(Request $request, $id)
     {
         $comment = Comment::findOrFail($id);
-        
+
         $data = $request->validate([
             'content' => 'sometimes'
         ]);
@@ -111,8 +111,11 @@ class CommentController extends Controller
     }
 
     /**
+     * Delete
+     *
      * Remove the specified resource from storage.
      *
+     * @header Authorization: Bearer your_token
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

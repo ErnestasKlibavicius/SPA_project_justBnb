@@ -12,24 +12,39 @@ class BookableAvailabilityController extends Controller
     {
         $this->middleware('auth:api', ['except' => ['index', 'show']]);
     }
-    
+
+
     /**
-     * Handle the incoming request.
+     * Availability
      *
-     * @param  \Illuminate\Http\Request  $request
+     * Check the availability of the bookable resource
+     *
+     *
+     * @group Bookable
+     * @header Authorization: Bearer your_token
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     *
+     * @response status=200 {
+     * []
+     * }
+     *
+     *
+     * @response status=401 {
+     * "message": "Unauthenticated"
+     * }
      */
     public function __invoke($id, Request $request)
     {
-       $data = $request->validate([
-        'from' => 'required|date_format:Y-m-d|after_or_equal:now', 
-        'to' => 'required|date_format:Y-m-d|after_or_equal:from'
-       ]);
+        $data = $request->validate([
+            'from' => 'required|date_format:Y-m-d|after_or_equal:now',
+            'to' => 'required|date_format:Y-m-d|after_or_equal:from'
+        ]);
 
-       $bookable = Bookable::findOrFail($id);
-       
-       return $bookable->availableFor($data['from'], $data['to'])
-       ? response()->json([])
-       : response()->json([], 404);
+        $bookable = Bookable::findOrFail($id);
+
+        return $bookable->availableFor($data['from'], $data['to'])
+            ? response()->json([])
+            : response()->json([], 404);
     }
 }

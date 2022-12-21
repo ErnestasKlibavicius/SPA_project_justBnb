@@ -30,9 +30,37 @@
                         <h5 style="color: #fff !important;">Edit</h5>
                     </router-link>
                 </div>
-                <div class="btn btn-danger m-2" style="display: block" @click="deleteBookable">
-                    delete
+                <!--                <div class="btn btn-danger m-2" style="display: block" @click="deleteBookable">-->
+                <!--                    delete-->
+                <!--                </div>-->
+
+                <div type="button" class="btn btn-danger m-2" style="display: block" data-toggle="modal"
+                     data-target="#exampleModal">
+                    Delete booking
                 </div>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Wait!!! Think this through</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete this bookable ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" @click="deleteBookable" data-dismiss="modal" class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
             <availability :bookable-id="this.$route.params.id" @availability="checkPrice($event)" class="mb-4">
@@ -156,21 +184,19 @@ export default {
         },
 
         deleteBookable() {
-            if (confirm('are you sure?')) {
-                let axiosInstance = axios.create({
-                    headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
-                    }
-                });
+            let axiosInstance = axios.create({
+                headers: {
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('userData')).authData.authParams.token}`
+                }
+            });
 
-                axiosInstance.delete(`/api/bookables/${this.bookable.id}`)
-                    .then(response => {
-                        this.$router.push("/");
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    })
-            }
+            axiosInstance.delete(`/api/bookables/${this.bookable.id}`)
+                .then(response => {
+                    this.$router.push("/");
+                })
+                .catch(error => {
+                    console.log(error);
+                })
         }
     },
 }

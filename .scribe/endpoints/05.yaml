@@ -1,0 +1,149 @@
+name: Basket
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/checkout
+    metadata:
+      groupName: Basket
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: checkout
+      description: 'Handle the checkout action request.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      'Authorization:': 'Bearer your_token'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      bookings:
+        name: bookings
+        description: ''
+        required: false
+        example:
+          - []
+        type: 'object[]'
+        custom: []
+      customer:
+        name: customer
+        description: ''
+        required: false
+        example: []
+        type: object
+        custom: []
+      customer.first_name:
+        name: customer.first_name
+        description: 'Must be at least 2 characters.'
+        required: true
+        example: tkigdmrddopxfeboltxssrlvacnnmfwgecuuicgtjpdxzq
+        type: string
+        custom: []
+      customer.last_name:
+        name: customer.last_name
+        description: 'Must be at least 2 characters.'
+        required: true
+        example: vrgwlclqanosszsn
+        type: string
+        custom: []
+      customer.street:
+        name: customer.street
+        description: 'Must be at least 3 characters.'
+        required: true
+        example: brrycsnwinxyhjdlrlkoth
+        type: string
+        custom: []
+      customer.city:
+        name: customer.city
+        description: 'Must be at least 3 characters.'
+        required: true
+        example: hjxhgkkaswqqhudffgbdpbhlovmrlsbfm
+        type: string
+        custom: []
+      customer.email:
+        name: customer.email
+        description: 'Must be a valid email address.'
+        required: true
+        example: heaney.angela@example.net
+        type: string
+        custom: []
+      customer.country:
+        name: customer.country
+        description: 'Must be at least 2 characters.'
+        required: true
+        example: hvztlqvntwphnnjwgbzgezuwaglphfuprsjzqggoesryutxbostyeqyqwotyxizig
+        type: string
+        custom: []
+      customer.state:
+        name: customer.state
+        description: 'Must be at least 2 characters.'
+        required: true
+        example: qo
+        type: string
+        custom: []
+      customer.zip:
+        name: customer.zip
+        description: 'Must be at least 2 characters.'
+        required: true
+        example: qocmxwxnbdrliuhfpyasewslajlrlcfpxdwdaptmrwddrakagvlsglmwnjqexfxebhjqxvjocmzaupthuexztac
+        type: string
+        custom: []
+      'bookings[].bookable_id':
+        name: 'bookings[].bookable_id'
+        description: ''
+        required: true
+        example: voluptatem
+        type: string
+        custom: []
+      'bookings[].from':
+        name: 'bookings[].from'
+        description: 'Must be a valid date. Must be a date after or equal to <code>today</code>.'
+        required: true
+        example: '2084-02-15'
+        type: string
+        custom: []
+      'bookings[].to':
+        name: 'bookings[].to'
+        description: 'Must be a valid date. Must be a date after or equal to <code>bookings.*.from</code>.'
+        required: true
+        example: '2050-04-15'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      bookings:
+        -
+          bookable_id: voluptatem
+          from: '2084-02-15'
+          to: '2050-04-15'
+      customer:
+        first_name: tkigdmrddopxfeboltxssrlvacnnmfwgecuuicgtjpdxzq
+        last_name: vrgwlclqanosszsn
+        street: brrycsnwinxyhjdlrlkoth
+        city: hjxhgkkaswqqhudffgbdpbhlovmrlsbfm
+        email: heaney.angela@example.net
+        country: hvztlqvntwphnnjwgbzgezuwaglphfuprsjzqggoesryutxbostyeqyqwotyxizig
+        state: qo
+        zip: qocmxwxnbdrliuhfpyasewslajlrlcfpxdwdaptmrwddrakagvlsglmwnjqexfxebhjqxvjocmzaupthuexztac
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: |-
+          {
+          "message": "Unauthenticated"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

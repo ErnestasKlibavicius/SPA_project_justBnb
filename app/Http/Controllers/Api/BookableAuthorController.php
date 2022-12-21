@@ -14,8 +14,11 @@ class BookableAuthorController extends Controller
 //        $this->middleware('auth.role:user');
     }
     /**
-     * Handle the incoming request.
+     * bookable Author
      *
+     * Get the bookable resource author.
+     * @group Bookable
+     * @header Authorization: Bearer your_token
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
